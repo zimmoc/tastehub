@@ -12,18 +12,21 @@ function TopBar() {
             <Container>
               <Nav className="mr-auto text-left">
                 <NavLink
+                  exact
                   className={css.NavLink}
                   activeClassName={css.Active}
                   to="/">
                   Explore
                 </NavLink>
                 <NavLink
+                  exact
                   className={css.NavLink}
                   activeClassName={css.Active}
                   to="/following">
                   Following
                 </NavLink>
                 <NavLink
+                  exact
                   className={css.NavLink}
                   activeClassName={css.Active}
                   to="/liked">
