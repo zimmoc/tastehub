@@ -3,12 +3,21 @@
     background-color: #1A1A1A;
     min-height: 100vh;
     color: #fff;
-    padding-top: 24px;
+    padding-top: 42px;
+    display: flex;
+    justify-content: center;
 }
 
 .Content {
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 2px;
-    border: 1px solid #dadadf;
+    max-width: 1280px;
+    width: 100%;
+}
+
+a {
+    transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #F38A29;
 }

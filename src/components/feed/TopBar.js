@@ -7,10 +7,10 @@ function TopBar() {
   return (
     <Container>
       <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <Navbar>
-            <Container>
-              <Nav className="mr-auto text-left">
+        <Col>
+          <Navbar className="m-0 p-0 mb-2 ml-1 mr-1">
+            <Container className={css.TopBar}>
+              <Nav className={`mr-auto text-left`}>
                 <NavLink
                   exact
                   className={css.NavLink}
