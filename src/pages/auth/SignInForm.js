@@ -48,8 +48,10 @@ function SignInForm() {
   };
 
   return (
-    <Row className={styles.Row}>
-      <Col className="my-auto p-0 p-md-2" md={{ span: 6, offset: 3 }}>
+    <Row>
+      <Col
+        className={`"p-0 p-md-2" ${styles.Content}`}
+        md={{ span: 6, offset: 3 }}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
@@ -87,7 +89,7 @@ function SignInForm() {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Orange}`}
               type="submit">
               Sign in
             </Button>
@@ -98,7 +100,7 @@ function SignInForm() {
             ))}
           </Form>
         </Container>
-        <Container className={`mt-3 ${appStyles.Content}`}>
+        <Container className={`pb-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
             Don't have an account? <span>Sign up now!</span>
           </Link>

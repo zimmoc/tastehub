@@ -17,7 +17,7 @@ function SignInOutPage() {
         <Col md={3} className="d-none d-md-block">
           <SideBar />
         </Col>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={9}>
           {signInPage && <SignInForm />}
           {signUpPage && <SignUpForm />}
         </Col>

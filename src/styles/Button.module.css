@@ -1,7 +1,7 @@
 .Button {
     font-size: 0.8rem;
     align-self: center;
-    border-radius: 100px;
+    border-radius: 10px;
     border-color: transparent;
     padding: 4px 10px;
     margin-left: 2px;
@@ -16,11 +16,11 @@
 }
 
 .Button:hover:active {
-    background-color: #2142b2 !important;
+    background-color: #2142b2;
 }
 
 .Button:active {
-    background-color: #2142b2 !important;
+    background-color: #2142b2;
 }
 
 .Button:focus {
@@ -66,4 +66,14 @@
 .Bright {
     background-color: #2ed9ff;
     color: #2142b2;
+}
+
+.Orange {
+    background-color: #F38A29;
+    color: #fff;
+}
+
+.Orange:hover {
+    background-color: #fff;
+    color: #F38A29;
 }
