@@ -5,12 +5,12 @@ import css from './styles/App.module.css';
 import './api/axiosDefaults';
 import SignInOutPage from './pages/SignInOutPage';
 import SideBar from './components/sidebar/SideBar';
+import { Col, Row, Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className={css.App}>
-      <div className={css.Container}>
-        <SideBar />
+      <Container className={css.Main}>
         <Switch>
           <Route exact path="/" render={() => <HomePage />} />
           <Route exact path="/signup" render={() => <SignInOutPage />} />
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/liked" render={() => <HomePage />} />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
-      </div>
+      </Container>
     </div>
   );
 }

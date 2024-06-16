@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 function TopBar() {
   return (
-    <Navbar className={`${css.TopBar} m-0 p-0 mr-4 ml-4 pb-2`}>
+    <Navbar className={`${css.TopBar} m-0 p-0 mr-4 ml-4`}>
       <Nav className="mr-auto text-left">
         <NavLink
           exact

@@ -1,32 +1,7 @@
-.HomePage {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-.FeedWrapper {
-    width: 570px;
-    padding: 0;
-    margin: 0;
-}
-
-.RightSidebar {
-    width: 285px;
-    padding-top: 22px;
-    display: flex;
-    justify-content: flex-start;
-
-    /* Optional spacing */
-}
-
 .Card {
     background-color: #282828;
     color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 0 1px #181818;
-    width: 265px;
-    margin-left: 15px;
-    height: 412px;
-    /* Ensures the card takes up the full width of the sidebar */
+    height: 90vh;
 }

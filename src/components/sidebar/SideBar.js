@@ -1,6 +1,5 @@
 import React from 'react';
-import css from '../../styles/SideBar.module.css';
-import { Card } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import {
   useCurrentUser,
@@ -8,6 +7,7 @@ import {
 } from '../../contexts/CurrentUserContext';
 import axios from 'axios';
 import Avatar from '../Avatar';
+import css from '../../styles/SideBar.module.css';
 
 function SideBar() {
   const currentUser = useCurrentUser();
@@ -24,49 +24,51 @@ function SideBar() {
 
   const loggedOutIcons = (
     <>
-      <NavLink
-        to="/signin"
-        className={css.NavLink}
-        activeClassName={css.Active}>
-        Sign in
-      </NavLink>
-      <NavLink
-        to="/signup"
-        className={css.NavLink}
-        activeClassName={css.Active}>
-        Sign up
-      </NavLink>
+      <Col className="d-flex flex-column">
+        <NavLink
+          to="/signin"
+          className={`${css.NavLink}`}
+          activeClassName={`${css.Active}`}>
+          Sign in
+        </NavLink>
+        <NavLink
+          to="/signup"
+          className={`${css.NavLink}`}
+          activeClassName={`${css.Active}`}>
+          Sign up
+        </NavLink>
+      </Col>
     </>
   );
 
   const loggedInIcons = (
     <>
-      <NavLink className={css.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt" />
-        Sign out
-      </NavLink>
-      <NavLink
-        className={css.NavLink}
-        to={`/profiles/${currentUser?.profile_id}`}>
-        <Avatar
-          src={currentUser?.profile_image}
-          text={currentUser?.username}
-          height={40}
-        />
-      </NavLink>
+      <Col className="d-flex flex-column">
+        <NavLink
+          to={`/profiles/${currentUser?.profile_id}`}
+          className={`${css.NavLink}`}>
+          <Avatar
+            src={currentUser?.profile_image}
+            text={currentUser?.username}
+            height={40}
+          />
+        </NavLink>
+        <NavLink to="/" className={`${css.NavLink}`} onClick={handleSignOut}>
+          <i className="fas fa-sign-out-alt" />
+          Sign out
+        </NavLink>
+      </Col>
     </>
   );
 
   return (
-    <div className={`mr-0 ${css.SideBar}`}>
-      <div className={css.Content}>
-        <Card className={css.Card}>
-          <Card.Body className="p-3">
-            {currentUser ? loggedInIcons : loggedOutIcons}
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
+    <Col className="p-0 m-0">
+      <Card className={`${css.Card}`}>
+        <Card.Body className="p-3">
+          {currentUser ? loggedInIcons : loggedOutIcons}
+        </Card.Body>
+      </Card>
+    </Col>
   );
 }
 

@@ -1,8 +1,5 @@
 .TopBar {
     height: 18px;
-    display: flex;
-    align-items: center;
-    background: none;
 }
 
 .NavLink {
@@ -12,7 +9,19 @@
     color: #b0b0b0;
     text-decoration: none;
     line-height: 18px;
-    /* Ensure the text is vertically centered */
+}
+
+.NavLink:hover {
+    text-decoration: none;
+    color: #f38a29;
+}
+
+.Active {
+    font-weight: 600;
+    font-size: 15px;
+    color: #f38a29;
+    text-decoration: none;
+    line-height: 18px;
 }
 
 .SortBy {
@@ -22,14 +31,4 @@
     display: flex;
     align-items: center;
     line-height: 18px;
-    /* Ensure the text is vertically centered */
-}
-
-.Active {
-    font-weight: 600;
-    font-size: 15px;
-    color: #f38a29;
-    text-decoration: none;
-    line-height: 18px;
-    /* Ensure the text is vertically centered */
 }
