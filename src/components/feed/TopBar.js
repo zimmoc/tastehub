@@ -1,6 +1,6 @@
 import React from 'react';
 import css from '../../styles/TopBar.module.css';
-import { Col, Container, Row, Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 function TopBar() {

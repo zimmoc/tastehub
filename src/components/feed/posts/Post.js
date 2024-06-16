@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Card, Container, Row } from 'react-bootstrap';
+import { Col, Card } from 'react-bootstrap';
 import css from '../../../styles/Post.module.css';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 

@@ -8,3 +8,50 @@
 .Main {
     padding-top: 81px;
 }
+
+.Content {
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 15px;
+    border: 0 solid #dadadf;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.CustomInput {
+    background-color: #222222;
+    color: #fff;
+    border: 0 solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 0px 0px 1px 1px #202020;
+}
+
+.CustomInput:focus {
+    background-color: #222222;
+    color: #fff;
+    border-color: #F38A29;
+    box-shadow: 0 0 5px rgba(243, 139, 41, 0.5);
+}
+
+.CustomInput::placeholder {
+    color: #B0B0B0;
+}
+
+.form-control {
+    background-color: red;
+}
+
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.FillerImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import {
   useCurrentUser,
@@ -52,6 +52,9 @@ function SideBar() {
             text={currentUser?.username}
             height={40}
           />
+        </NavLink>
+        <NavLink to="/posts/create" className={`${css.NavLink}`}>
+          Create post
         </NavLink>
         <NavLink to="/" className={`${css.NavLink}`} onClick={handleSignOut}>
           <i className="fas fa-sign-out-alt" />

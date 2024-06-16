@@ -4,8 +4,8 @@ import HomePage from './pages/HomePage';
 import css from './styles/App.module.css';
 import './api/axiosDefaults';
 import SignInOutPage from './pages/SignInOutPage';
-import SideBar from './components/sidebar/SideBar';
-import { Col, Row, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import PostCreateForm from './components/feed/posts/PostCreateForm';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInOutPage />} />
           <Route exact path="/following" render={() => <HomePage />} />
           <Route exact path="/liked" render={() => <HomePage />} />
+          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>

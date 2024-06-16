@@ -1,5 +1,4 @@
 import React from 'react';
-import Feed from '../components/feed/Feed';
 import SideBar from '../components/sidebar/SideBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import SignInForm from './auth/SignInForm';

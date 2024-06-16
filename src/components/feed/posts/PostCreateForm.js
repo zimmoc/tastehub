@@ -11,47 +11,246 @@ import Upload from '../../../assets/upload.png';
 import styles from '../../../styles/PostCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
-import css from '../../../';
+import SideBar from '../../sidebar/SideBar';
+import { Image, InputGroup } from 'react-bootstrap';
+import Asset from '../../Asset';
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
+  const [recipeData, setRecipeData] = useState({
+    title: '',
+    description: '',
+    ingredients: [''],
+    instructions: [''],
+    image: '',
+  });
+  const { title, description, ingredients, instructions, image } = recipeData;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRecipeData({
+      ...recipeData,
+      [name]: value,
+    });
+  };
+
+  const handleIngredientChange = (index, event) => {
+    const newIngredients = [...recipeData.ingredients];
+    newIngredients[index] = event.target.value;
+    setRecipeData({
+      ...recipeData,
+      ingredients: newIngredients,
+    });
+  };
+
+  const handleInstructionChange = (index, event) => {
+    const newInstructions = [...recipeData.instructions];
+    newInstructions[index] = event.target.value;
+    setRecipeData({
+      ...recipeData,
+      instructions: newInstructions,
+    });
+  };
+
+  const handleAddIngredient = () => {
+    setRecipeData({
+      ...recipeData,
+      ingredients: [...recipeData.ingredients, ''],
+    });
+  };
+
+  const handleAddInstruction = () => {
+    setRecipeData({
+      ...recipeData,
+      instructions: [...recipeData.instructions, ''],
+    });
+  };
+
+  const handleRemoveIngredient = (index) => {
+    const newIngredients = recipeData.ingredients.filter((_, i) => i !== index);
+    setRecipeData({
+      ...recipeData,
+      ingredients: newIngredients,
+    });
+  };
+
+  const handleRemoveInstruction = (index) => {
+    const newInstructions = recipeData.instructions.filter(
+      (_, i) => i !== index
+    );
+    setRecipeData({
+      ...recipeData,
+      instructions: newInstructions,
+    });
+  };
+
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setRecipeData({
+        ...recipeData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
+  const imageUpload = (
+    <Form.Group className="text-center">
+      {image ? (
+        <>
+          <figure>
+            <Image className={appStyles.Image} src={image} rounded />
+          </figure>
+          <div>
+            <Form.Label
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
+              htmlFor="image-upload">
+              Change the image
+            </Form.Label>
+          </div>
+        </>
+      ) : (
+        <Form.Label
+          className="d-flex justify-content-center"
+          htmlFor="image-upload">
+          <Asset src={Upload} message="Click or tap to upload an image" />
+        </Form.Label>
+      )}
+      <Form.File
+        id="image-upload"
+        accept="image/*"
+        onChange={handleChangeImage}
+      />
+    </Form.Group>
+  );
+
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+          className={appStyles.CustomInput}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Description</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="description"
+          value={description}
+          onChange={handleChange}
+          className={appStyles.CustomInput}
+        />
+      </Form.Group>
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Orange}`}
         onClick={() => {}}>
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Orange}`}
+        type="submit">
         create
       </Button>
     </div>
   );
 
+  const ingredientsField = (
+    <Form.Group>
+      <Form.Label>Ingredients</Form.Label>
+      {recipeData.ingredients.map((ingredient, index) => (
+        <InputGroup className="mb-2" key={index}>
+          <Form.Control
+            type="text"
+            name={`ingredient-${index}`}
+            value={ingredient}
+            onChange={(e) => handleIngredientChange(index, e)}
+            className={`${appStyles.CustomInput}`}
+          />
+          <InputGroup.Append>
+            <Button
+              variant="outline-danger"
+              onClick={() => handleRemoveIngredient(index)}
+              disabled={recipeData.ingredients.length === 1}>
+              &times;
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+      ))}
+      <Button
+        className={`ml-2 mt-2 ${btnStyles.Button} ${btnStyles.Orange}`}
+        onClick={handleAddIngredient}>
+        Add Ingredient
+      </Button>
+    </Form.Group>
+  );
+
+  const instructionsField = (
+    <Form.Group>
+      <Form.Label>Instructions</Form.Label>
+      {recipeData.instructions.map((instruction, index) => (
+        <InputGroup className="mb-2" key={index}>
+          <Form.Control
+            type="text"
+            name={`instruction-${index}`}
+            value={instruction}
+            onChange={(e) => handleInstructionChange(index, e)}
+            className={`${appStyles.CustomInput}`}
+          />
+          <InputGroup.Append>
+            <Button
+              variant="outline-danger"
+              onClick={() => handleRemoveInstruction(index)}
+              disabled={recipeData.instructions.length === 1}>
+              &times;
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+      ))}
+      <Button
+        className={`ml-2 mt-2 ${btnStyles.Button} ${btnStyles.Orange}`}
+        onClick={handleAddInstruction}>
+        Add Instruction
+      </Button>
+    </Form.Group>
+  );
+
   return (
-    <Form>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
-            <Form.Group className="text-center">
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload">
-                ASSET
-              </Form.Label>
-            </Form.Group>
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+    <Row>
+      <Col xs={12} lg={3} className="m-0 p-0 d-none d-lg-block">
+        <SideBar />
+      </Col>
+      <Col xs={12} lg={9} className="m-0 p-0">
+        <Form>
+          <Col className="mb-3">
+            <Container className={`${appStyles.Content} ${styles.Container}`}>
+              <Row className="p-2">
+                <Col className="d-flex flex-column justify-content-center align-items-center">
+                  {imageUpload}
+                </Col>
+                <Col className={`mr-2 ${appStyles.Content}`}>{textFields}</Col>
+              </Row>
+            </Container>
+          </Col>
+          <Col className="mb-3">
+            <Container
+              className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
+              <Row className="p-2">
+                <Col md={4}>{ingredientsField}</Col>
+                <Col md={8}>{instructionsField}</Col>
+              </Row>
+            </Container>
+          </Col>
+        </Form>
+      </Col>
+    </Row>
   );
 }
 
