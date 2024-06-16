@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -12,8 +12,10 @@ import styles from '../../../styles/PostCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
 import SideBar from '../../sidebar/SideBar';
-import { Image, InputGroup } from 'react-bootstrap';
+import { Alert, Image, InputGroup } from 'react-bootstrap';
 import Asset from '../../Asset';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { axiosReq } from '../../../api/axiosDefaults';
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -26,6 +28,30 @@ function PostCreateForm() {
     image: '',
   });
   const { title, description, ingredients, instructions, image } = recipeData;
+
+  const imageInput = useRef(null);
+  const history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('ingredients', ingredients);
+    formData.append('instructions', instructions);
+    formData.append('image', imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post('/recipes/', formData);
+      history.push(`/recipes/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,6 +147,7 @@ function PostCreateForm() {
         id="image-upload"
         accept="image/*"
         onChange={handleChangeImage}
+        ref={imageInput}
       />
     </Form.Group>
   );
@@ -137,6 +164,11 @@ function PostCreateForm() {
           className={appStyles.CustomInput}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -148,16 +180,21 @@ function PostCreateForm() {
           className={appStyles.CustomInput}
         />
       </Form.Group>
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Orange}`}
-        onClick={() => {}}>
+        onClick={() => history.goBack()}>
         cancel
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Orange}`}
         type="submit">
-        create
+        Post Recipe
       </Button>
     </div>
   );
@@ -228,12 +265,17 @@ function PostCreateForm() {
         <SideBar />
       </Col>
       <Col xs={12} lg={9} className="m-0 p-0">
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Col className="mb-3">
             <Container className={`${appStyles.Content} ${styles.Container}`}>
               <Row className="p-2">
                 <Col className="d-flex flex-column justify-content-center align-items-center">
                   {imageUpload}
+                  {errors?.image?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                      {message}
+                    </Alert>
+                  ))}
                 </Col>
                 <Col className={`mr-2 ${appStyles.Content}`}>{textFields}</Col>
               </Row>
@@ -243,8 +285,22 @@ function PostCreateForm() {
             <Container
               className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
               <Row className="p-2">
-                <Col md={4}>{ingredientsField}</Col>
-                <Col md={8}>{instructionsField}</Col>
+                <Col md={4}>
+                  {ingredientsField}
+                  {errors?.ingredients?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                      {message}
+                    </Alert>
+                  ))}
+                </Col>
+                <Col md={8}>
+                  {instructionsField}
+                  {errors?.instructions?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                      {message}
+                    </Alert>
+                  ))}
+                </Col>
               </Row>
             </Container>
           </Col>
