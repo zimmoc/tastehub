@@ -11,7 +11,7 @@ function Feed() {
   return (
     <div className={css.Feed}>
       {showTopBar && <TopBar />}
-      <Post />
+      <Post className={css.Post} />
     </div>
   );
 }

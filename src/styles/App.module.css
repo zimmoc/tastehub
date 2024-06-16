@@ -1,23 +1,17 @@
 .App {
-    font-family: 'Roboto', sans-serif;
-    background-color: #1A1A1A;
-    min-height: 100vh;
-    color: #fff;
-    padding-top: 42px;
     display: flex;
     justify-content: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 42px;
 }
 
-.Content {
-    max-width: 1280px;
+.Container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-}
-
-a {
-    transition: color ease-in-out 0.3s;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #F38A29;
+    max-width: 1280px;
 }

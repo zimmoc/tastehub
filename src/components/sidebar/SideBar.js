@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import css from '../../styles/SideBar.module.css';
 import { Card } from 'react-bootstrap';
-import { CurrentUserContext } from '../../App';
 import { NavLink } from 'react-router-dom';
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from '../../contexts/CurrentUserContext';
 import axios from 'axios';
-import { removeTokenTimestamp } from '../../utils/utils';
+import Avatar from '../Avatar';
 
 function SideBar() {
   const currentUser = useCurrentUser();
@@ -18,7 +17,6 @@ function SideBar() {
     try {
       await axios.post('/dj-rest-auth/logout/');
       setCurrentUser(null);
-      removeTokenTimestamp();
     } catch (err) {
       // console.log(err);
     }
@@ -40,14 +38,32 @@ function SideBar() {
       </NavLink>
     </>
   );
-  const loggedInIcons = <>{currentUser?.username}</>;
+
+  const loggedInIcons = (
+    <>
+      <NavLink className={css.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt" />
+        Sign out
+      </NavLink>
+      <NavLink
+        className={css.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}>
+        <Avatar
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={40}
+        />
+      </NavLink>
+    </>
+  );
 
   return (
     <div className={`mr-0 ${css.SideBar}`}>
       <div className={css.Content}>
         <Card className={css.Card}>
-          <Card.Body>{currentUser ? loggedInIcons : loggedOutIcons}</Card.Body>
-          {console.log('User: ', currentUser?.username)}
+          <Card.Body className="p-3">
+            {currentUser ? loggedInIcons : loggedOutIcons}
+          </Card.Body>
         </Card>
       </div>
     </div>

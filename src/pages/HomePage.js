@@ -1,20 +1,21 @@
 import React from 'react';
 import Feed from '../components/feed/Feed';
 import SideBar from '../components/sidebar/SideBar';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import css from '../styles/Homepage.module.css';
 
 function HomePage() {
   return (
-    <Container fluid>
-      <Row>
-        <Col md={3} className="d-none d-md-block">
-          <SideBar />
-        </Col>
-        <Col xs={12} md={6}>
-          <Feed />
-        </Col>
-      </Row>
-    </Container>
+    <div className={css.HomePage}>
+      <div className={css.FeedWrapper}>
+        <Feed />
+      </div>
+      <div className={css.RightSidebar}>
+        <Card className={css.Card}>
+          <Card.Body>Right Sidebar Content</Card.Body>
+        </Card>
+      </div>
+    </div>
   );
 }
 
