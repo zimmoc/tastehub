@@ -71,6 +71,7 @@
 .Orange {
     background-color: #F38A29;
     color: #fff;
+    box-shadow: 0px 0px 1px 1px #202020;
 }
 
 .Orange:hover {

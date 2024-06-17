@@ -37,7 +37,7 @@ function RecipePage() {
         <SideBar />
       </Col>
       <Col xs={12} lg={6} className="m-0 p-0 pl-3">
-        <Recipe {...recipe.results[0]} setRecipe={setRecipe} recipePage />
+        <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
       </Col>
     </Row>
   );

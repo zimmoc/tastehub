@@ -51,6 +51,7 @@ function SideBar() {
             src={currentUser?.profile_image}
             text={currentUser?.username}
             height={40}
+            className="pr-3"
           />
         </NavLink>
         <NavLink to="/recipes/create" className={`${css.NavLink}`}>

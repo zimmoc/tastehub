@@ -10,7 +10,7 @@ function HomePage() {
       <Col md={4} lg={3} className="d-none d-md-block p-0 m-0">
         <SideBar />
       </Col>
-      <Col className="p-0" md={8} lg={6}>
+      <Col className="p-0 pl-3 pr-3" md={8} lg={6}>
         <Feed />
       </Col>
       <Col lg={3} className="d-none d-lg-block p-0">

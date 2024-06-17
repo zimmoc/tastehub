@@ -13,18 +13,7 @@ import btnStyles from '../../../styles/Button.module.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Avatar from '../../Avatar';
-
-// function Recipe() {
-//   const location = useLocation();
-//   const explore = location.pathname === '/';
-//   const following = location.pathname === '/following';
-//   const liked = location.pathname === '/liked';
-//   return (
-//     <Col md={12} className={`m-0 p-3`}>
-//       <Card className={css.Recipe}></Card>
-//     </Col>
-//   );
-// }
+import { axiosReq, axiosRes } from '../../../api/axiosDefaults';
 
 const Recipe = (props) => {
   const {
@@ -44,23 +33,64 @@ const Recipe = (props) => {
     instructions,
     ingredients,
     recipePage,
+    setRecipes,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post('/likes/', { recipe: id });
+      setRecipes((prevRecipes) => ({
+        ...prevRecipes,
+        results: prevRecipes.results.map((recipe) => {
+          return recipe.id === id
+            ? {
+                ...recipe,
+                likes_count: recipe.likes_count + 1,
+                like_id: data.id,
+              }
+            : recipe;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setRecipes((prevRecipes) => ({
+        ...prevRecipes,
+        results: prevRecipes.results.map((recipe) => {
+          return recipe.id === id
+            ? { ...recipe, likes_count: recipe.likes_count - 1, like_id: null }
+            : recipe;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={css.Recipe}>
       <Card.Body className="p-0 pl-3 pr-3 pt-3">
         <Row className="align-items-center justify-content-between p-0">
-          <Col xs="auto">
+          <Col xs="auto" className="pr-1">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar src={profile_image} height={50} />
             </Link>
           </Col>
           <Col className="d-flex flex-column pl-0">
-            <Link to={`/profiles/${profile_id}`}>{owner}</Link>
-            {updated_at}
+            <Link to={`/profiles/${profile_id}`}>
+              <span className={css.Owner}>
+                {owner?.name ? owner.name : owner}
+              </span>
+            </Link>
+            <span className={css.UpdatedAt}>{updated_at}</span>
           </Col>
           <Col className="d-flex justify-content-end align-items-center pr-3">
             <Button
@@ -76,8 +106,15 @@ const Recipe = (props) => {
       </Card.Body>
       <Card.Body className="p-0 pl-3 pr-3">
         <Col className="pl-1 pr-1 pt-3">
-          {title && <Card.Title>{title}</Card.Title>}
-          {description && <Card.Text>{description}</Card.Text>}
+          {title && (
+            <Card.Title className={css.RecipeTitle}>{title}</Card.Title>
+          )}
+          <hr className="p-0 m-0 pb-1" />
+          {description && (
+            <Card.Text className={css.RecipeDescription}>
+              {description}
+            </Card.Text>
+          )}
         </Col>
       </Card.Body>
       <Link to={`/recipes/${id}`}>
@@ -91,15 +128,15 @@ const Recipe = (props) => {
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own recipe!</Tooltip>}>
-              <i className="far fa-heart" />
+              <i className={`far fa-heart ${css.Icon}`} />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
-              <i className={`fas fa-heart ${css.Heart}`} />
+            <span onClick={handleUnlike}>
+              <i className={`fas fa-heart ${css.IconSet}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
-              <i className={`far fa-heart ${css.HeartOutline}`} />
+            <span onClick={handleLike}>
+              <i className={`far fa-heart ${css.Icon}`} />
             </span>
           ) : (
             <OverlayTrigger
@@ -108,11 +145,11 @@ const Recipe = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          <span>{likes_count}</span>
-          <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+          <span className={css.Counts}>{likes_count}</span>
+          <Link to={`/recipes/${id}`}>
+            <i class={`fa-regular fa-message ${css.Icon}`}></i>
           </Link>
-          <span>{comments_count}</span>
+          <span className={css.Counts}>{comments_count}</span>
         </div>
       </Card.Body>
     </Card>
