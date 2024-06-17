@@ -10,6 +10,8 @@ import TopBar from '../components/feed/TopBar';
 
 import NoResults from '../assets/no-results.png';
 import Asset from '../components/Asset';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../utils/utils';
 
 function HomePage({ message, filter = '' }) {
   const [recipes, setRecipes] = useState({ results: [] });
@@ -61,9 +63,15 @@ function HomePage({ message, filter = '' }) {
         {hasLoaded ? (
           <>
             {recipes.results.length ? (
-              recipes.results.map((recipe) => (
-                <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
-              ))
+              <InfiniteScroll
+                children={recipes.results.map((recipe) => (
+                  <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
+                ))}
+                dataLength={recipes.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!recipes.next}
+                next={() => fetchMoreData(recipes, setRecipes)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
