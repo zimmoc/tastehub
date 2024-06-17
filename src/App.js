@@ -7,17 +7,45 @@ import SignInOutPage from './pages/SignInOutPage';
 import { Container } from 'react-bootstrap';
 import RecipeCreateForm from './components/feed/recipes/RecipeCreateForm';
 import RecipePage from './components/feed/recipes/RecipePage';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || '';
+
   return (
     <div className={css.App}>
       <Container className={css.Main}>
         <Switch>
-          <Route exact path="/" render={() => <HomePage />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <HomePage message="No results found. Adjust the search keyword." />
+            )}
+          />
           <Route exact path="/signup" render={() => <SignInOutPage />} />
           <Route exact path="/signin" render={() => <SignInOutPage />} />
-          <Route exact path="/following" render={() => <HomePage />} />
-          <Route exact path="/liked" render={() => <HomePage />} />
+          <Route
+            exact
+            path="/following"
+            render={() => (
+              <HomePage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/liked"
+            render={() => (
+              <HomePage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
+          />
           <Route
             exact
             path="/recipes/create"

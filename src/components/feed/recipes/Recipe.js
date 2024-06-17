@@ -105,7 +105,7 @@ const Recipe = (props) => {
         </Row>
       </Card.Body>
       <Card.Body className="p-0 pl-3 pr-3">
-        <Col className="pl-1 pr-1 pt-3">
+        <Col className="pl-1 pr-1 pt-1">
           {title && (
             <Card.Title className={css.RecipeTitle}>{title}</Card.Title>
           )}
