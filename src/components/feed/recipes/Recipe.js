@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Avatar from '../../Avatar';
 import { axiosReq, axiosRes } from '../../../api/axiosDefaults';
+import { MoreDropdown } from '../../MoreDropDown';
 
 const Recipe = (props) => {
   const {
@@ -99,7 +100,7 @@ const Recipe = (props) => {
               Follow
             </Button>
             {is_owner && recipePage && (
-              <i className="fa-solid fa-ellipsis-vertical"></i>
+              <MoreDropdown className="m-0 p-0 ml-0" />
             )}
           </Col>
         </Row>
