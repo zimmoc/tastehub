@@ -1,7 +1,32 @@
-.Card {
+.Recipe {
     background-color: #282828;
     color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 0 1px #181818;
-    height: 615px;
+    margin-bottom: 16px;
+}
+
+.ImageContainer {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.ImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.Heart {
+    color: #f85032;
+}
+
+.Heart:hover {
+    color: #2142b2;
+}
+
+.HeartOutline:hover {
+    color: #f85032;
 }

@@ -9,6 +9,7 @@ import SideBar from '../../sidebar/SideBar';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../../api/axiosDefaults';
+import Recipe from './Recipe';
 
 function RecipePage() {
   const { id } = useParams();
@@ -35,8 +36,8 @@ function RecipePage() {
       <Col xs={12} lg={3} className="m-0 p-0 d-none d-lg-block">
         <SideBar />
       </Col>
-      <Col xs={12} lg={9} className="m-0 p-0 pl-3">
-        <Card className={appStyles.Content}>Test</Card>
+      <Col xs={12} lg={6} className="m-0 p-0 pl-3">
+        <Recipe {...recipe.results[0]} setRecipe={setRecipe} recipePage />
       </Col>
     </Row>
   );
