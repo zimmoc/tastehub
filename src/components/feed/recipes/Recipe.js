@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Card } from 'react-bootstrap';
-import css from '../../../styles/Post.module.css';
+import css from '../../../styles/Recipe.module.css';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
-function Post() {
+function Recipe() {
   const location = useLocation();
   const explore = location.pathname === '/';
   const following = location.pathname === '/following';
@@ -25,4 +25,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default Recipe;

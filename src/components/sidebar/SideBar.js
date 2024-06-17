@@ -53,8 +53,8 @@ function SideBar() {
             height={40}
           />
         </NavLink>
-        <NavLink to="/posts/create" className={`${css.NavLink}`}>
-          Create post
+        <NavLink to="/recipes/create" className={`${css.NavLink}`}>
+          Create Recipe
         </NavLink>
         <NavLink to="/" className={`${css.NavLink}`} onClick={handleSignOut}>
           <i className="fas fa-sign-out-alt" />
