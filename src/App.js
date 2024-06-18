@@ -8,6 +8,7 @@ import { Container } from 'react-bootstrap';
 import RecipeCreateForm from './components/feed/recipes/RecipeCreateForm';
 import RecipePage from './components/feed/recipes/RecipePage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+import RecipeEditForm from './components/feed/recipes/RecipeEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -50,6 +51,11 @@ function App() {
             exact
             path="/recipes/create"
             render={() => <RecipeCreateForm />}
+          />
+          <Route
+            exact
+            path="/recipes/:id/edit"
+            render={() => <RecipeEditForm />}
           />
           <Route exact path="/recipes/:id" render={() => <RecipePage />} />
           <Route render={() => <p>Page not found</p>} />

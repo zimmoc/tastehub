@@ -21,3 +21,7 @@
     background-color: #1A1A1A;
     color: #fff;
 }
+
+.DropdownHover:hover {
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap';
 import css from '../../../styles/Recipe.module.css';
 import btnStyles from '../../../styles/Button.module.css';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Avatar from '../../Avatar';
 import { axiosReq, axiosRes } from '../../../api/axiosDefaults';
@@ -39,6 +39,7 @@ const Recipe = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
 
   const handleLike = async () => {
     try {
@@ -76,6 +77,19 @@ const Recipe = (props) => {
     }
   };
 
+  const handleEdit = () => {
+    history.push(`/recipes/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/recipes/${id}`);
+      history.goBack();
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
   return (
     <Card className={css.Recipe}>
       <Card.Body className="p-0 pl-3 pr-3 pt-3">
@@ -100,7 +114,11 @@ const Recipe = (props) => {
               Follow
             </Button>
             {is_owner && recipePage && (
-              <MoreDropdown className="m-0 p-0 ml-0" />
+              <MoreDropdown
+                className="m-0 p-0 ml-0"
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
             )}
           </Col>
         </Row>
@@ -110,7 +128,7 @@ const Recipe = (props) => {
           {title && (
             <Card.Title className={css.RecipeTitle}>{title}</Card.Title>
           )}
-          <hr className="p-0 m-0 pb-1" />
+          {/* <hr className="p-0 m-0 pb-2" /> */}
           {description && (
             <Card.Text className={css.RecipeDescription}>
               {description}
