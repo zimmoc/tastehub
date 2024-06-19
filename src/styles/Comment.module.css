@@ -1,0 +1,11 @@
+.Owner {
+    font-weight: medium;
+    color: #F38A29;
+    margin-right: 8px;
+}
+
+.Date {
+    font-weight: lighter;
+    color: #B0B0B0;
+    font-size: 14px;
+}
