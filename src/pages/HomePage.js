@@ -48,6 +48,7 @@ function HomePage({ message, filter = '' }) {
         <SideBar />
       </Col>
       <Col className="p-0 pl-3 pr-3" md={8} lg={6}>
+        <PopularProfiles mobile className="pb-2" />
         <TopBar />
         <i className={`fas fa-search ${css.SearchIcon}`} />
         <Form
@@ -85,7 +86,7 @@ function HomePage({ message, filter = '' }) {
           </Container>
         )}
       </Col>
-      <Col lg={3} className="d-none d-lg-block p-0 pl-3">
+      <Col lg={3} className="d-none d-lg-block p-0 pl-1">
         <Card className={css.Card}>
           <PopularProfiles />
         </Card>
