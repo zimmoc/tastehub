@@ -6,20 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
-import Upload from '../../../assets/upload.png';
-
 import styles from '../../../styles/RecipeCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
 import SideBar from '../../sidebar/SideBar';
 import { Alert, Image, InputGroup } from 'react-bootstrap';
-import Asset from '../../Asset';
 import {
   useHistory,
   useParams,
 } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../../api/axiosDefaults';
-import axios from 'axios';
 
 function RecipeEditForm() {
   const [errors, setErrors] = useState({});
@@ -221,7 +217,7 @@ function RecipeEditForm() {
       <Button
         className={`${btnStyles.Button} ${btnStyles.Orange}`}
         type="submit">
-        Post Recipe
+        Update recipe
       </Button>
     </div>
   );
