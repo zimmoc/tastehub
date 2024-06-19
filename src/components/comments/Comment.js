@@ -3,9 +3,45 @@ import styles from '../../styles/Comment.module.css';
 import Avatar from '../Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { Media } from 'react-bootstrap';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { MoreDropdown } from '../MoreDropDown';
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Comment = (props) => {
-  const { profile_id, profile_image, owner, updated_at, content } = props;
+  const {
+    profile_id,
+    profile_image,
+    owner,
+    updated_at,
+    content,
+    id,
+    setRecipe,
+    setComments,
+  } = props;
+
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/comments/${id}`);
+      setRecipe((prevRecipe) => ({
+        results: [
+          {
+            ...prevRecipe.results[0],
+            comments_count: prevRecipe.results[0].comments_count - 1,
+          },
+        ],
+      }));
+
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="pl-2 pr-2">
@@ -21,6 +57,9 @@ const Comment = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           <p>{content}</p>
         </Media.Body>
+        {is_owner && (
+          <MoreDropdown handleEdit={() => {}} handleDelete={handleDelete} />
+        )}
       </Media>
     </div>
   );
