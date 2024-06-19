@@ -10,10 +10,15 @@ import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../../api/axiosDefaults';
 import Recipe from './Recipe';
+import CommentCreateForm from '../../comments/CommentCreateForm';
+import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 
 function RecipePage() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({ results: [] });
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -33,11 +38,22 @@ function RecipePage() {
 
   return (
     <Row>
-      <Col xs={12} lg={3} className="m-0 p-0 d-none d-lg-block">
+      <Col xs={12} lg={3} className="m-0 p-0 pr-3 d-none d-lg-block">
         <SideBar />
       </Col>
       <Col xs={12} lg={6} className="m-0 p-0 pl-3">
         <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
+        {currentUser ? (
+          <CommentCreateForm
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            recipe={id}
+            setRecipe={setRecipe}
+            setComments={setComments}
+          />
+        ) : comments.results.length ? (
+          'Comments'
+        ) : null}
       </Col>
     </Row>
   );

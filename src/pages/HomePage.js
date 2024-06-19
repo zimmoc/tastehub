@@ -43,7 +43,7 @@ function HomePage({ message, filter = '' }) {
 
   return (
     <Row className="h-100">
-      <Col md={4} lg={3} className="d-none d-md-block p-0 m-0">
+      <Col md={4} lg={3} className="d-none d-md-block p-0 m-0 pr-3">
         <SideBar />
       </Col>
       <Col className="p-0 pl-3 pr-3" md={8} lg={6}>
@@ -84,7 +84,7 @@ function HomePage({ message, filter = '' }) {
           </Container>
         )}
       </Col>
-      <Col lg={3} className="d-none d-lg-block p-0">
+      <Col lg={3} className="d-none d-lg-block p-0 pl-3">
         <Card className={css.Card}>
           <Card.Body>Right Sidebar Content</Card.Body>
         </Card>
