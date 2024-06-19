@@ -14,6 +14,9 @@ import Recipe from './Recipe';
 import CommentCreateForm from '../../comments/CommentCreateForm';
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Comment from '../../comments/Comment';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Asset from '../../Asset';
+import { fetchMoreData } from '../../../utils/utils';
 
 function RecipePage() {
   const { id } = useParams();
@@ -47,7 +50,7 @@ function RecipePage() {
       </Col>
       <Col xs={12} lg={6} className="m-0 p-0 pl-3">
         <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
-        <Container className={commentStyles.Container}>
+        <Container className={`mb-5 ${commentStyles.Container}`}>
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -60,14 +63,20 @@ function RecipePage() {
             'Comments'
           ) : null}
           {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                setRecipe={setRecipe}
-                setComments={setComments}
-              />
-            ))
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setRecipe={setRecipe}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>No comments yet, be the first to comment! </span>
           ) : (
