@@ -12,6 +12,7 @@ import NoResults from '../assets/no-results.png';
 import Asset from '../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../utils/utils';
+import PopularProfiles from '../components/profiles/PopularProfiles';
 
 function HomePage({ message, filter = '' }) {
   const [recipes, setRecipes] = useState({ results: [] });
@@ -86,7 +87,7 @@ function HomePage({ message, filter = '' }) {
       </Col>
       <Col lg={3} className="d-none d-lg-block p-0 pl-3">
         <Card className={css.Card}>
-          <Card.Body>Right Sidebar Content</Card.Body>
+          <PopularProfiles />
         </Card>
       </Col>
     </Row>
