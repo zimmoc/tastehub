@@ -46,34 +46,22 @@ function SideBar() {
         </Card>
         <Container
           className={`${css.NavItem} ${
-            isActive('/recipes/create') ? css.NavItemActive : ''
-          }`}>
-          <NavLink
-            to="/recipes/create"
-            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
-            activeClassName={css.ActiveLink}>
-            <i className="fa-regular fa-square-plus pr-3" />
-            Create Recipe
-          </NavLink>
-        </Container>
-        <Container
-          className={`${css.NavItem} ${
             isActive('/', '/following', '/liked') ? css.NavItemActive : ''
           }`}>
           <NavLink
-            to="/recipes/create"
+            to="/"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
             <i className="fas fa-th-large pr-3" />
-            Feeds
+            Feed
           </NavLink>
         </Container>
         <Container className={`${css.NavItem}`}>
           <NavLink
-            to="/"
+            to="/signup"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             onClick={handleSignOut}>
-            <i className="fas fa-sign-out-alt pr-3" />
+            <i className="fas fa-user-plus pr-3" />
             Sign up
           </NavLink>
         </Container>
@@ -128,7 +116,7 @@ function SideBar() {
             isActive('/', '/following', '/liked') ? css.NavItemActive : ''
           }`}>
           <NavLink
-            to="/recipes/create"
+            to="/"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
             <i className="fas fa-th-large pr-3" />

@@ -11,17 +11,15 @@ function SignInOutPage() {
   const signUpPage = location.pathname === '/signup';
 
   return (
-    <Container fluid>
-      <Row>
-        <Col md={3} className="d-none d-md-block">
-          <SideBar />
-        </Col>
-        <Col xs={12} md={9}>
-          {signInPage && <SignInForm />}
-          {signUpPage && <SignUpForm />}
-        </Col>
-      </Row>
-    </Container>
+    <Row>
+      <Col md={4} lg={3} className="d-none d-md-block p-0 m-0">
+        <SideBar />
+      </Col>
+      <Col className="p-0 pl-3" md={8} lg={6}>
+        {signInPage && <SignInForm />}
+        {signUpPage && <SignUpForm />}
+      </Col>
+    </Row>
   );
 }
 
