@@ -40,11 +40,17 @@
 
 .Button {
     height: 25px;
-    width: 45px;
+    width: 50px;
     font-size: 10px;
     font-weight: bold;
     background-color: #F38A29;
     color: #fff;
     border: 0;
     border-radius: 5px;
+    box-shadow: 0px 0px 1px 1px #202020;
+}
+
+.ButtonFollowed {
+    background-color: #222222;
+    box-shadow: 0px 0px 1px 1px rgba(243, 139, 41, 0.5);
 }

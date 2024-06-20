@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from '../../styles/Profile.module.css';
-import btnStyles from '../../styles/Button.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../Avatar';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { useSetProfileData } from '../../contexts/CurrentUserContext';
+import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 50 } = props;
@@ -14,7 +13,7 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  //   const { handleFollow, handleUnfollow } = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <>
@@ -44,24 +43,19 @@ const Profile = (props) => {
                 </Col>
               </Link>
               <Col className="d-flex justify-content-end p-0 m-0 ml-auto mr-2">
-                {/* <Button
-                  className={`${styles.Button} p-0 m-0 d-flex justify-content-center align-items-center`}
-                  onClick={() => {}}>
-                  Follow
-                </Button> */}
                 {!mobile &&
                   currentUser &&
                   !is_owner &&
                   (following_id ? (
                     <Button
-                      className={`${styles.Button} p-0 m-0 d-flex justify-content-center align-items-center`}
-                      onClick={() => {}}>
-                      unfollow
+                      className={`${styles.Button} ${styles.ButtonFollowed} p-0 m-0 d-flex justify-content-center align-items-center`}
+                      onClick={() => handleUnfollow(profile)}>
+                      Unfollow
                     </Button>
                   ) : (
                     <Button
                       className={`${styles.Button} p-0 m-0 d-flex justify-content-center align-items-center`}
-                      onClick={() => {}}>
+                      onClick={() => handleFollow(profile)}>
                       Follow
                     </Button>
                   ))}
