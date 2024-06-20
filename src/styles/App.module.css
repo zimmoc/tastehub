@@ -56,3 +56,10 @@ input[type="file"] {
     height: 100%;
     width: 100%;
 }
+
+.Card {
+    background-color: #282828;
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 0 1px #181818;
+}

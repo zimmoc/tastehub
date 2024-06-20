@@ -38,7 +38,7 @@ const Profile = (props) => {
                     {profile.name ? profile.name : profile.owner}
                   </p>
                   <p className={`m-0 p-0 ${styles.FollowersText}`}>
-                    {profile.followers_count} Followers
+                    {profile.followers_count} followers
                   </p>
                 </Col>
               </Link>
@@ -50,13 +50,13 @@ const Profile = (props) => {
                     <Button
                       className={`${styles.Button} ${styles.ButtonFollowed} p-0 m-0 d-flex justify-content-center align-items-center`}
                       onClick={() => handleUnfollow(profile)}>
-                      Unfollow
+                      unfollow
                     </Button>
                   ) : (
                     <Button
                       className={`${styles.Button} p-0 m-0 d-flex justify-content-center align-items-center`}
                       onClick={() => handleFollow(profile)}>
-                      Follow
+                      follow
                     </Button>
                   ))}
               </Col>

@@ -11,6 +11,13 @@
     color: #F38A29;
 }
 
+.DropdownRow {
+    display: block;
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 .Absolute {
     position: absolute;
     right: 0;
