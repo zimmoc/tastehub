@@ -1,0 +1,50 @@
+.WordBreak {
+    word-break: break-all;
+}
+
+.Link {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.Link:hover {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.Container {
+    background-color: #222222;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 1px 1px #202020;
+}
+
+.Profile {
+    background-color: #282828;
+    box-shadow: 0px 0px 1px 1px #202020;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.ProfileText {
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.FollowersText {
+    color: #F38A29;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.Button {
+    height: 25px;
+    width: 45px;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #F38A29;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
