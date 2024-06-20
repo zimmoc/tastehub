@@ -166,7 +166,7 @@ const Recipe = (props) => {
           )}
           <span className={css.Counts}>{likes_count}</span>
           <Link to={`/recipes/${id}`}>
-            <i class={`fa-regular fa-message ${css.Icon}`}></i>
+            <i className={`fa-regular fa-message ${css.Icon}`}></i>
           </Link>
           <span className={css.Counts}>{comments_count}</span>
         </div>

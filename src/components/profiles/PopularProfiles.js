@@ -46,7 +46,7 @@ const PopularProfiles = ({ mobile }) => {
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 5).map((profile) => (
-                <Link to={`/profiles/${profile.id}`}>
+                <Link key={profile.id} to={`/profiles/${profile.id}`}>
                   <Avatar src={profile.image} height={50} />
                   <p key={profile.id} className={styles.Link}>
                     {profile.name ? profile.name.split(' ')[0] : profile.owner}

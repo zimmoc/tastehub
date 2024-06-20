@@ -52,7 +52,7 @@ function SideBar() {
             to="/recipes/create"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
-            <i class="fa-regular fa-square-plus pr-3" />
+            <i className="fa-regular fa-square-plus pr-3" />
             Create Recipe
           </NavLink>
         </Container>
@@ -64,7 +64,7 @@ function SideBar() {
             to="/recipes/create"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
-            <i class="fas fa-th-large pr-3" />
+            <i className="fas fa-th-large pr-3" />
             Feeds
           </NavLink>
         </Container>
@@ -119,7 +119,7 @@ function SideBar() {
             to="/recipes/create"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
-            <i class="fa-regular fa-square-plus pr-3" />
+            <i className="fa-regular fa-square-plus pr-3" />
             Create Recipe
           </NavLink>
         </Container>
@@ -131,7 +131,7 @@ function SideBar() {
             to="/recipes/create"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
-            <i class="fas fa-th-large pr-3" />
+            <i className="fas fa-th-large pr-3" />
             Feeds
           </NavLink>
         </Container>
