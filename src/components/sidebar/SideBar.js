@@ -14,6 +14,8 @@ function SideBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const location = useLocation();
+  const defaultProfileImg =
+    'https://res.cloudinary.com/dpokxro3u/image/upload/v1718310153/default_profile_ioora4.jpg';
 
   const isActive = (path) => location.pathname === path;
 
@@ -29,18 +31,52 @@ function SideBar() {
   const loggedOutIcons = (
     <>
       <Col className="d-flex flex-column">
-        <NavLink
-          to="/signin"
-          className={`${css.NavLink}`}
-          activeClassName={`${css.Active}`}>
-          Sign in
-        </NavLink>
-        <NavLink
-          to="/signup"
-          className={`${css.NavLink}`}
-          activeClassName={`${css.Active}`}>
-          Sign up
-        </NavLink>
+        <Card className={`${css.Card} mb`}>
+          <Card.Body className="d-flex flex-column justify-content-center align-items-center">
+            <Avatar src={defaultProfileImg} height={100} className="pr-3" />
+            <p className={`${css.ProfileName} m-0 pt-2 pb-3`}>TasteHub</p>
+            <hr className={`${css.ProfileHr} m-0`} />
+            <Button
+              as={Link}
+              to={`/signin`}
+              className={`${css.ProfileButton} mt-2`}>
+              Sign in
+            </Button>
+          </Card.Body>
+        </Card>
+        <Container
+          className={`${css.NavItem} ${
+            isActive('/recipes/create') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/recipes/create"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i class="fa-regular fa-square-plus pr-3" />
+            Create Recipe
+          </NavLink>
+        </Container>
+        <Container
+          className={`${css.NavItem} ${
+            isActive('/', '/following', '/liked') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/recipes/create"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i class="fas fa-th-large pr-3" />
+            Feeds
+          </NavLink>
+        </Container>
+        <Container className={`${css.NavItem}`}>
+          <NavLink
+            to="/"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            onClick={handleSignOut}>
+            <i className="fas fa-sign-out-alt pr-3" />
+            Sign up
+          </NavLink>
+        </Container>
       </Col>
     </>
   );
