@@ -75,7 +75,7 @@ function SideBar() {
         <Card className={`${css.Card} mb`}>
           <Card.Body className="d-flex flex-column justify-content-center align-items-center">
             <Avatar
-              src={currentUser?.profile_image}
+              src={currentUser?.profile?.image || defaultProfileImg}
               height={100}
               className="pr-3"
             />
@@ -83,7 +83,10 @@ function SideBar() {
               className={`${css.ProfileName} m-0 pt-2 ${
                 !currentUser?.name ? 'pb-3' : ''
               }`}>
-              {currentUser?.name ? currentUser?.name : currentUser?.username}
+              {console.log(currentUser)}
+              {currentUser?.profile?.name
+                ? currentUser?.profile?.name
+                : currentUser?.username}
             </p>
             {currentUser?.name && (
               <p className={`${css.ProfileAt} m-0 pb-3`}>

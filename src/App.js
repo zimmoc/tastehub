@@ -10,6 +10,9 @@ import RecipePage from './components/feed/recipes/RecipePage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import RecipeEditForm from './components/feed/recipes/RecipeEditForm';
 import ProfilePage from './components/profiles/ProfilePage';
+import UsernameForm from './components/profiles/UsernameForm';
+import UserPasswordForm from './components/profiles/UserPasswordForm';
+import ProfileEditForm from './components/profiles/ProfileEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -60,6 +63,21 @@ function App() {
           />
           <Route exact path="/recipes/:id" render={() => <RecipePage />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found</p>} />
         </Switch>
       </Container>

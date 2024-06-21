@@ -15,11 +15,17 @@ export const CurrentUserProvider = ({ children }) => {
 
   const handleMount = async () => {
     try {
-      await axiosRes
-        .get('/dj-rest-auth/user/')
-        .then((response) => setCurrentUser(response.data));
+      const { data: userData } = await axiosRes.get('/dj-rest-auth/user/');
+      const { data: profileData } = await axiosReq.get(
+        `/profiles/${userData.pk}`
+      );
+      const combinedData = {
+        ...userData,
+        profile: profileData,
+      };
+      setCurrentUser(combinedData);
     } catch (error) {
-      console.error('An error occurred, status:', error.response.status);
+      console.error('An error occurred, status:', error.response?.status);
     }
   };
 
