@@ -44,7 +44,7 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
           const { name, bio, image } = data;
-          setProfileData({ name, bio, image });
+          setProfileData(data);
         } catch (err) {
           console.log(err);
           history.push('/');

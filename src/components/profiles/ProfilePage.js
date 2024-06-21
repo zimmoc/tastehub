@@ -113,10 +113,12 @@ function ProfilePage() {
                 ))}
             </Col>
             {profile?.bio && (
-              <Col className="p-3">
-                <hr />
-                {profile.bio}
-              </Col>
+              <Row className="pl-3 pr-3 w-100">
+                <Col>
+                  <hr />
+                  {profile.bio}
+                </Col>
+              </Row>
             )}
           </Row>
         </Card.Body>
