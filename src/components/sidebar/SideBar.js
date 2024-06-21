@@ -103,6 +103,54 @@ function SideBar() {
         </Card>
         <Container
           className={`${css.NavItem} ${
+            isActive('/') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i className="fas fa-house pr-3" />
+            Home
+          </NavLink>
+        </Container>
+        <Container
+          className={`${css.NavItem} ${
+            isActive('/following') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/following"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i className="fas fa-user-group pr-3" />
+            Following
+          </NavLink>
+        </Container>
+        <Container
+          className={`${css.NavItem} ${
+            isActive('/liked') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/liked"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i className="fas fa-heart pr-3" />
+            Liked
+          </NavLink>
+        </Container>
+        <Container
+          className={`${css.NavItem} ${
+            isActive('/recipes') ? css.NavItemActive : ''
+          }`}>
+          <NavLink
+            to="/recipes"
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            activeClassName={css.ActiveLink}>
+            <i className="fas fa-book-bookmark pr-3" />
+            My Recipes
+          </NavLink>
+        </Container>
+        <Container
+          className={`${css.NavItem} ${
             isActive('/recipes/create') ? css.NavItemActive : ''
           }`}>
           <NavLink
@@ -113,22 +161,10 @@ function SideBar() {
             Create Recipe
           </NavLink>
         </Container>
-        <Container
-          className={`${css.NavItem} ${
-            isActive('/', '/following', '/liked') ? css.NavItemActive : ''
-          }`}>
-          <NavLink
-            to="/"
-            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
-            activeClassName={css.ActiveLink}>
-            <i className="fas fa-th-large pr-3" />
-            Feeds
-          </NavLink>
-        </Container>
         <Container className={`${css.NavItem}`}>
           <NavLink
             to="/"
-            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
+            className={`${css.NavLink} d-flex justify-content-start align-items-center h-100 pt-5`}
             onClick={handleSignOut}>
             <i className="fas fa-sign-out-alt pr-3" />
             Sign out

@@ -43,6 +43,16 @@ function App() {
           />
           <Route
             exact
+            path="/recipes"
+            render={() => (
+              <HomePage
+                message="No results found. Create some recipes!"
+                filter={`owner__profile=${profile_id}&ordering=-recipes__created_at&`}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/liked"
             render={() => (
               <HomePage
