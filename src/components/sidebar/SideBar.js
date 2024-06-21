@@ -81,14 +81,13 @@ function SideBar() {
             />
             <p
               className={`${css.ProfileName} m-0 pt-2 ${
-                !currentUser?.name ? 'pb-3' : ''
+                !currentUser?.profile?.name ? 'pb-3' : ''
               }`}>
-              {console.log(currentUser)}
               {currentUser?.profile?.name
                 ? currentUser?.profile?.name
                 : currentUser?.username}
             </p>
-            {currentUser?.name && (
+            {currentUser?.profile.name && (
               <p className={`${css.ProfileAt} m-0 pb-3`}>
                 @{currentUser.username}
               </p>

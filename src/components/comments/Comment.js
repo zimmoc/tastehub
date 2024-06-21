@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Comment.module.css';
 import Avatar from '../Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
@@ -7,6 +7,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { MoreDropdown } from '../MoreDropDown';
 import { axiosRes } from '../../api/axiosDefaults';
 import CommentEditForm from './CommentEditForm';
+import { useProfileData } from '../../contexts/ProfileDataContext';
 
 const Comment = (props) => {
   const {
@@ -23,6 +24,22 @@ const Comment = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const [ownerName, setOwnerName] = useState(owner);
+  const { fetchProfile, ...profiles } = useProfileData();
+
+  useEffect(() => {
+    const getProfileName = async () => {
+      if (profile_id && !profiles[profile_id]) {
+        await fetchProfile(profile_id);
+      }
+      if (profiles[profile_id]) {
+        setOwnerName(profiles[profile_id].name || owner);
+      }
+    };
+
+    getProfileName();
+  }, [profiles, profile_id, fetchProfile, owner]);
 
   const handleDelete = async () => {
     try {
@@ -53,9 +70,7 @@ const Comment = (props) => {
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
-          <span className={styles.Owner}>
-            {owner.name ? owner.name : owner}
-          </span>
+          <span className={styles.Owner}>{ownerName}</span>
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
             <CommentEditForm

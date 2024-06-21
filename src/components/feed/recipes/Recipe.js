@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Col,
   Card,
@@ -15,6 +15,7 @@ import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Avatar from '../../Avatar';
 import { axiosReq, axiosRes } from '../../../api/axiosDefaults';
 import { MoreDropdown } from '../../MoreDropDown';
+import { useProfileData } from '../../../contexts/ProfileDataContext';
 
 const Recipe = (props) => {
   const {
@@ -35,11 +36,28 @@ const Recipe = (props) => {
     ingredients,
     recipePage,
     setRecipes,
+    name,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+
+  const [ownerName, setOwnerName] = useState(owner);
+  const { fetchProfile, ...profiles } = useProfileData();
+
+  useEffect(() => {
+    const getProfileName = async () => {
+      if (profile_id && !profiles[profile_id]) {
+        await fetchProfile(profile_id);
+      }
+      if (profiles[profile_id]) {
+        setOwnerName(profiles[profile_id].name || owner);
+      }
+    };
+
+    getProfileName();
+  }, [profiles, profile_id, fetchProfile, owner]);
 
   const handleLike = async () => {
     try {
@@ -101,9 +119,7 @@ const Recipe = (props) => {
           </Col>
           <Col className="d-flex flex-column pl-0">
             <Link to={`/profiles/${profile_id}`}>
-              <span className={css.Owner}>
-                {owner?.name ? owner.name : owner}
-              </span>
+              <span className={css.Owner}>{ownerName}</span>
             </Link>
             <span className={css.UpdatedAt}>{updated_at}</span>
           </Col>

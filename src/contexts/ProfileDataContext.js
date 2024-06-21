@@ -66,6 +66,20 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  const fetchProfile = async (profileId) => {
+    if (!profileData[profileId]) {
+      try {
+        const { data } = await axiosReq.get(`/profiles/${profileId}`);
+        setProfileData((prevState) => ({
+          ...prevState,
+          [profileId]: data,
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -85,7 +99,7 @@ export const ProfileDataProvider = ({ children }) => {
   }, [currentUser]);
 
   return (
-    <ProfileDataContext.Provider value={profileData}>
+    <ProfileDataContext.Provider value={{ ...profileData, fetchProfile }}>
       <SetProfileDataContext.Provider
         value={{ setProfileData, handleFollow, handleUnfollow }}>
         {children}

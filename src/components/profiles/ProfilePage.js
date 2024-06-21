@@ -71,9 +71,15 @@ function ProfilePage() {
               <Avatar src={profile?.image} height={100} />
             </Col>
             <Col xs="auto" className="text-center">
-              <h3 className="m-2">
-                {profile?.owner.name ? profile?.owner.name : profile?.owner}
-              </h3>
+              <h4 className="m-2">
+                {!profile?.name && <span style={{ color: '#B0B0B0' }}>@</span>}
+                {profile?.name ? profile?.name : profile?.owner}
+              </h4>
+              {profile?.name && (
+                <p className={`m-0 pb-3 ${styles.ProfileAt}`}>
+                  @{profile?.owner}
+                </p>
+              )}
               <Row className="d-flex justify-content-center">
                 <Col xs="auto" className="my-2 text-center">
                   <div>{profile?.recipes_count}</div>
@@ -106,7 +112,12 @@ function ProfilePage() {
                   </Button>
                 ))}
             </Col>
-            {profile?.content && <Col className="p-3">{profile.content}</Col>}
+            {profile?.bio && (
+              <Col className="p-3">
+                <hr />
+                {profile.bio}
+              </Col>
+            )}
           </Row>
         </Card.Body>
       </Card>
@@ -117,9 +128,7 @@ function ProfilePage() {
     <>
       <hr className="w-50" style={{ backgroundColor: '#F38A29' }} />
       <p className="text-center">
-        {profile?.owner.name
-          ? profile?.owner.name.split(' ')[0]
-          : profile?.owner}
+        {profile?.name ? profile?.name.split(' ')[0] : profile?.owner}
         's recipes
       </p>
       <hr className="w-50" style={{ backgroundColor: '#F38A29' }} />

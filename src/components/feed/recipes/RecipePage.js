@@ -34,7 +34,6 @@ function RecipePage() {
         ]);
         setRecipe({ results: [recipe] });
         setComments(comments);
-        console.log(recipe);
       } catch (err) {
         console.log(err);
       }
