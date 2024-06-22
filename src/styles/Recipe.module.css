@@ -76,3 +76,9 @@
     padding-left: 8px;
     padding-right: 16px;
 }
+
+.AtName {
+    font-size: 12px;
+    font-weight: 400;
+    color: #B0B0B0;
+}

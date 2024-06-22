@@ -119,8 +119,11 @@ const Recipe = (props) => {
           </Col>
           <Col className="d-flex flex-column pl-0">
             <Link to={`/profiles/${profile_id}`}>
-              <span className={css.Owner}>{ownerName}</span>
+              <span className={css.Owner}>
+                {ownerName} <span className={css.AtName}>@{owner}</span>
+              </span>
             </Link>
+
             <span className={css.UpdatedAt}>{updated_at}</span>
           </Col>
           <Col className="d-flex justify-content-end align-items-center pr-3">
