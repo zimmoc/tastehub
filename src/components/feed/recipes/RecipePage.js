@@ -17,6 +17,8 @@ import Comment from '../../comments/Comment';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Asset from '../../Asset';
 import { fetchMoreData } from '../../../utils/utils';
+import IngredientsList from './IngredientsList';
+import InstructionsList from './InstructionsList';
 
 function RecipePage() {
   const { id } = useParams();
@@ -38,7 +40,6 @@ function RecipePage() {
         console.log(err);
       }
     };
-
     handleMount();
   }, [id]);
 
@@ -47,9 +48,21 @@ function RecipePage() {
       <Col xs={12} lg={3} className="m-0 p-0 pr-3 d-none d-lg-block">
         <SideBar />
       </Col>
-      <Col xs={12} lg={6} className="m-0 p-0 pl-3">
-        <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
-        <Container className={`mb-5 ${commentStyles.Container}`}>
+      <Col xs={12} lg={6} className="m-0 p-0">
+        {recipe.results.length > 0 && (
+          <>
+            <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
+            <Card className={`${appStyles.Card} p-3`}>
+              <Card.Body>
+                <InstructionsList
+                  instructions={recipe.results[0].instructions}
+                />
+              </Card.Body>
+            </Card>
+          </>
+        )}
+
+        <Container className={`mb-5 mt-3 ${commentStyles.Container}`}>
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -82,6 +95,15 @@ function RecipePage() {
             <span>No comments yet!</span>
           )}
         </Container>
+      </Col>
+      <Col xs={12} lg={3} className="m-0 p-0 pl-3">
+        {recipe.results.length > 0 && (
+          <Card className={`${appStyles.Card}`}>
+            <Card.Body>
+              <IngredientsList ingredients={recipe.results[0].ingredients} />
+            </Card.Body>
+          </Card>
+        )}
       </Col>
     </Row>
   );

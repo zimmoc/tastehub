@@ -31,6 +31,13 @@ function RecipeEditForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  const parsedIngredients = Array.isArray(ingredients)
+    ? ingredients
+    : ingredients.split(',');
+  const parsedInstructions = Array.isArray(instructions)
+    ? instructions
+    : instructions.split(',');
+
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -48,8 +55,8 @@ function RecipeEditForm() {
           ? setRecipeData({
               title,
               description,
-              ingredients: ingredients.split(','),
-              instructions: instructions.split(','),
+              ingredients: parsedIngredients,
+              instructions: parsedInstructions,
               image,
             })
           : history.push('/');
@@ -67,8 +74,8 @@ function RecipeEditForm() {
 
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('ingredients', ingredients);
-    formData.append('instructions', instructions);
+    formData.append('ingredients', JSON.stringify(ingredients));
+    formData.append('instructions', JSON.stringify(instructions));
 
     if (imageInput?.current?.files[0]) {
       formData.append('image', imageInput.current.files[0]);
