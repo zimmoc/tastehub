@@ -31,13 +31,6 @@ function RecipeEditForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
-  const parsedIngredients = Array.isArray(ingredients)
-    ? ingredients
-    : ingredients.split(',');
-  const parsedInstructions = Array.isArray(instructions)
-    ? instructions
-    : instructions.split(',');
-
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -50,6 +43,13 @@ function RecipeEditForm() {
           image,
           is_owner,
         } = data;
+
+        const parsedIngredients = Array.isArray(ingredients)
+          ? ingredients
+          : JSON.parse(ingredients);
+        const parsedInstructions = Array.isArray(instructions)
+          ? instructions
+          : JSON.parse(instructions);
 
         is_owner
           ? setRecipeData({

@@ -40,8 +40,8 @@ function RecipeCreateForm() {
 
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('ingredients', ingredients);
-    formData.append('instructions', instructions);
+    formData.append('ingredients', JSON.stringify(ingredients));
+    formData.append('instructions', JSON.stringify(instructions));
     formData.append('image', imageInput.current.files[0]);
 
     try {

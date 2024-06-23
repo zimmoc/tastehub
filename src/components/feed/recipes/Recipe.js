@@ -147,9 +147,13 @@ const Recipe = (props) => {
           {title && (
             <Card.Title className={css.RecipeTitle}>{title}</Card.Title>
           )}
-          {/* <hr className="p-0 m-0 pb-2" /> */}
           {description && (
-            <Card.Text className={css.RecipeDescription}>
+            <Card.Text
+              className={
+                recipePage
+                  ? css.RecipeDescriptionNoOverflow
+                  : css.RecipeDescription
+              }>
               {description}
             </Card.Text>
           )}
