@@ -52,6 +52,12 @@ function RecipePage() {
         {recipe.results.length > 0 && (
           <>
             <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
+            <Card
+              className={`${appStyles.Card} p-3 d-block d-lg-none m-0 mb-3`}>
+              <Card.Body>
+                <IngredientsList ingredients={recipe.results[0].ingredients} />
+              </Card.Body>
+            </Card>
             <Card className={`${appStyles.Card} p-3`}>
               <Card.Body>
                 <InstructionsList
@@ -96,7 +102,7 @@ function RecipePage() {
           )}
         </Container>
       </Col>
-      <Col xs={12} lg={3} className="m-0 p-0 pl-3">
+      <Col xs={12} lg={3} className="m-0 p-0 pl-3 d-none d-lg-block">
         {recipe.results.length > 0 && (
           <Card className={`${appStyles.Card}`}>
             <Card.Body>
