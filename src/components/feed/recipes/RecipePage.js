@@ -45,10 +45,10 @@ function RecipePage() {
 
   return (
     <Row>
-      <Col xs={12} lg={3} className="m-0 p-0 pr-3 d-none d-lg-block">
+      <Col md={4} lg={3} className="m-0 p-0 pr-3 d-none d-md-block">
         <SideBar />
       </Col>
-      <Col xs={12} lg={6} className="m-0 p-0">
+      <Col md={8} lg={6} className="m-0 p-0">
         {recipe.results.length > 0 && (
           <>
             <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />

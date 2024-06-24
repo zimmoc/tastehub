@@ -13,6 +13,7 @@ import ProfilePage from './components/profiles/ProfilePage';
 import UsernameForm from './components/profiles/UsernameForm';
 import UserPasswordForm from './components/profiles/UserPasswordForm';
 import ProfileEditForm from './components/profiles/ProfileEditForm';
+import NavBar from './components/NavBar';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -20,6 +21,9 @@ function App() {
 
   return (
     <div className={css.App}>
+      <Container className={`p-0 m-0 d-block d-md-none mb-5`}>
+        <NavBar />
+      </Container>
       <Container className={css.Main}>
         <Switch>
           <Route

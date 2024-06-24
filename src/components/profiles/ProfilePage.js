@@ -163,7 +163,7 @@ function ProfilePage() {
       <Col
         md={4}
         lg={3}
-        className={`${appStyles.SideColumn}d-none d-md-block p-0 m-0`}>
+        className={`${appStyles.SideColumn} d-none d-md-block p-0 m-0`}>
         <SideBar />
       </Col>
       <Col className={`${appStyles.MiddleColumn} p-0 pl-3 pr-3`} md={8} lg={6}>

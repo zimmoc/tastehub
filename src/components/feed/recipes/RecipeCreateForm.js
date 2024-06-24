@@ -263,10 +263,13 @@ function RecipeCreateForm() {
 
   return (
     <Row>
-      <Col xs={12} lg={3} className="m-0 p-0 d-none d-lg-block">
+      <Col
+        md={4}
+        lg={3}
+        className={`d-none d-md-block p-0 m-0 ${appStyles.SideColumn}`}>
         <SideBar />
       </Col>
-      <Col xs={12} lg={9} className="m-0 p-0">
+      <Col className={`p-0 pl-3 pr-3 ${appStyles.MiddleColumn}`} md={8} lg={9}>
         <Form onSubmit={handleSubmit}>
           <Col className="mb-3">
             <Container className={`${appStyles.Content} ${styles.Container}`}>
