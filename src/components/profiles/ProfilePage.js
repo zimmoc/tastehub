@@ -134,6 +134,7 @@ function ProfilePage() {
         's recipes
       </p>
       <hr className="w-50" style={{ backgroundColor: '#F38A29' }} />
+
       {profileRecipes.results.length ? (
         <InfiniteScroll
           children={profileRecipes.results.map((recipe) => (
@@ -159,10 +160,13 @@ function ProfilePage() {
 
   return (
     <Row>
-      <Col md={4} lg={3} className="d-none d-md-block p-0 m-0">
+      <Col
+        md={4}
+        lg={3}
+        className={`${appStyles.SideColumn}d-none d-md-block p-0 m-0`}>
         <SideBar />
       </Col>
-      <Col className="p-0 pl-3 pr-3" md={8} lg={6}>
+      <Col className={`${appStyles.MiddleColumn} p-0 pl-3 pr-3`} md={8} lg={6}>
         <PopularProfiles mobile />
         {hasLoaded ? (
           <>
@@ -173,7 +177,9 @@ function ProfilePage() {
           <Asset spinner />
         )}
       </Col>
-      <Col lg={3} className="d-none d-lg-block p-0 pl-1">
+      <Col
+        lg={3}
+        className={`${appStyles.SideColumn}d-none d-lg-block p-0 pl-1`}>
         <Card className={appStyles.Card}>
           <PopularProfiles />
         </Card>

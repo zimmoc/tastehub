@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import {
@@ -9,13 +9,13 @@ import axios from 'axios';
 import Avatar from '../Avatar';
 import css from '../../styles/SideBar.module.css';
 import { Link, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import Logo from '../../assets/logo.png';
 
 function SideBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const location = useLocation();
-  const defaultProfileImg =
-    'https://res.cloudinary.com/dpokxro3u/image/upload/v1718310153/default_profile_ioora4.jpg';
+  const [profileLoading, setProfileLoading] = useState(false);
 
   const isActive = (path) => location.pathname === path;
 
@@ -28,13 +28,39 @@ function SideBar() {
     }
   };
 
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      if (currentUser && !currentUser.profile && !profileLoading) {
+        setProfileLoading(true);
+        try {
+          const { data: profileData } = await axios.get(
+            `/profiles/${currentUser.pk}`
+          );
+          setCurrentUser((prevUser) => ({
+            ...prevUser,
+            profile: profileData,
+          }));
+        } catch (error) {
+          console.error(
+            'An error occurred while fetching profile data:',
+            error
+          );
+        } finally {
+          setProfileLoading(false);
+        }
+      }
+    };
+
+    fetchProfileData();
+  }, [currentUser, setCurrentUser, profileLoading]);
+
   const loggedOutIcons = (
     <>
       <Col className="d-flex flex-column">
         <Card className={`${css.Card} mb`}>
           <Card.Body className="d-flex flex-column justify-content-center align-items-center">
-            <Avatar src={defaultProfileImg} height={100} className="pr-3" />
-            <p className={`${css.ProfileName} m-0 pt-2 pb-3`}>TasteHub</p>
+            <Avatar src={Logo} height={100} className="pr-3" />
+            <p className={`${css.ProfileName} m-0 pt-2 pb-3`}></p>
             <hr className={`${css.ProfileHr} m-0`} />
             <Button
               as={Link}
@@ -52,8 +78,8 @@ function SideBar() {
             to="/"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
-            <i className="fas fa-th-large pr-3" />
-            Feed
+            <i className="fas fa-house pr-3" />
+            Home
           </NavLink>
         </Container>
         <Container className={`${css.NavItem}`}>
@@ -75,7 +101,7 @@ function SideBar() {
         <Card className={`${css.Card} mb`}>
           <Card.Body className="d-flex flex-column justify-content-center align-items-center">
             <Avatar
-              src={currentUser?.profile?.image || defaultProfileImg}
+              src={currentUser?.profile_image}
               height={100}
               className="pr-3"
             />

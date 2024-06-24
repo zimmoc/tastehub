@@ -44,24 +44,29 @@ function HomePage({ message, filter = '' }) {
 
   return (
     <Row>
-      <Col md={4} lg={3} className="d-none d-md-block p-0 m-0">
+      <Col
+        md={4}
+        lg={3}
+        className={`d-none d-md-block p-0 m-0 ${appStyles.SideColumn}`}>
         <SideBar />
       </Col>
-      <Col className="p-0 pl-3 pr-3" md={8} lg={6}>
+      <Col className={`p-0 pl-3 pr-3 ${appStyles.MiddleColumn}`} md={8} lg={6}>
         <PopularProfiles mobile className="pb-2" />
-        <TopBar />
-        <i className={`fas fa-search ${css.SearchIcon}`} />
-        <Form
-          className={css.SearchBar}
-          onSubmit={(event) => event.preventDefault()}>
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2 mt-0 pt-0"
-            placeholder="Search recipes"
-          />
-        </Form>
+        <Container className={`p-0 pb-2 ${appStyles.StickyTop}`}>
+          <TopBar />
+          <i className={`fas fa-search ${css.SearchIcon}`} />
+          <Form
+            className={css.SearchBar}
+            onSubmit={(event) => event.preventDefault()}>
+            <Form.Control
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              type="text"
+              className="mr-sm-2 mt-0 pt-0"
+              placeholder="Search recipes"
+            />
+          </Form>
+        </Container>
         {hasLoaded ? (
           <>
             {recipes.results.length ? (

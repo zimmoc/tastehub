@@ -15,6 +15,7 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../styles/App.module.css';
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
+import { axiosReq } from '../../api/axiosDefaults';
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -51,9 +52,7 @@ function SignInForm() {
 
   return (
     <Row>
-      <Col
-        className={`"p-0 p-md-2" ${styles.Content}`}
-        md={{ span: 6, offset: 3 }}>
+      <Col className={`"p-0 p-md-2" ${styles.Content}`}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>

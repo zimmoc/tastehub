@@ -16,14 +16,16 @@ export const CurrentUserProvider = ({ children }) => {
   const handleMount = async () => {
     try {
       const { data: userData } = await axiosRes.get('/dj-rest-auth/user/');
-      const { data: profileData } = await axiosReq.get(
-        `/profiles/${userData.pk}`
-      );
-      const combinedData = {
-        ...userData,
-        profile: profileData,
-      };
-      setCurrentUser(combinedData);
+      if (userData.pk) {
+        const { data: profileData } = await axiosReq.get(
+          `/profiles/${userData.pk}`
+        );
+        const combinedData = {
+          ...userData,
+          profile: profileData,
+        };
+        setCurrentUser(combinedData);
+      }
     } catch (error) {
       console.error('An error occurred, status:', error.response?.status);
     }

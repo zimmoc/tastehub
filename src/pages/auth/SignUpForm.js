@@ -41,9 +41,7 @@ const SignUpForm = () => {
 
   return (
     <Row>
-      <Col
-        className={`"p-0 p-md-2" ${styles.Content}`}
-        md={{ span: 6, offset: 3 }}>
+      <Col className={`"p-0 p-md-2" ${styles.Content}`}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
 

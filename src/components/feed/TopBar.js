@@ -36,11 +36,11 @@ function TopBar() {
           </>
         )}
       </Nav>
-      <Nav className="ml-auto">
+      {/* <Nav className="ml-auto">
         <span className={css.SortBy}>
           Sort by <i className="fa-solid fa-sort-down ml-1"></i>
         </span>
-      </Nav>
+      </Nav> */}
     </Navbar>
   );
 }

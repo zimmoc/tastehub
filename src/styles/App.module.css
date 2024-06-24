@@ -6,7 +6,7 @@
 }
 
 .Main {
-    padding-top: 81px;
+    padding-top: 41px;
 }
 
 .Content {
@@ -62,4 +62,31 @@ input[type="file"] {
     color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 0 1px #181818;
+}
+
+.MiddleColumn {
+    height: 100vh;
+    overflow-y: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.MiddleColumn::-webkit-scrollbar {
+    display: none;
+}
+
+.SideColumn {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.StickyTop {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #1a1a1a;
 }
