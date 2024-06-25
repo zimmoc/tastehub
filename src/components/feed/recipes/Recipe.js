@@ -12,6 +12,7 @@ import Avatar from '../../Avatar';
 import { axiosRes } from '../../../api/axiosDefaults';
 import { MoreDropdown } from '../../MoreDropDown';
 import { useProfileData } from '../../../contexts/ProfileDataContext';
+import PropTypes from 'prop-types';
 
 const Recipe = (props) => {
   const {
@@ -155,7 +156,7 @@ const Recipe = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own recipe!</Tooltip>}>
+              overlay={<Tooltip>You can&apos;t like your own recipe!</Tooltip>}>
               <i className={`far fa-heart ${css.Icon}`} />
             </OverlayTrigger>
           ) : like_id ? (
@@ -182,6 +183,22 @@ const Recipe = (props) => {
       </Card.Body>
     </Card>
   );
+};
+
+Recipe.propTypes = {
+  id: PropTypes.number.isRequired,
+  owner: PropTypes.string.isRequired,
+  profile_id: PropTypes.number.isRequired,
+  profile_image: PropTypes.string,
+  comments_count: PropTypes.number.isRequired,
+  likes_count: PropTypes.number.isRequired,
+  like_id: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  updated_at: PropTypes.string.isRequired,
+  recipePage: PropTypes.bool,
+  setRecipes: PropTypes.func.isRequired,
 };
 
 export default Recipe;

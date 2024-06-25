@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import styles from '../styles/MoreDropdown.module.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -73,3 +74,20 @@ export const ProfileEditDropdown = ({ id }) => {
     </Dropdown>
   );
 };
+
+ThreeDots.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+MoreDropdown.propTypes = {
+  handleEdit: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
+
+ProfileEditDropdown.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+ThreeDots.displayName = 'ThreeDots';
+MoreDropdown.displayName = 'MoreDropdown';
+ProfileEditDropdown.displayName = 'ProfileEditDropdown';

@@ -283,6 +283,9 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 - react-bootstrap: Integrated Bootstrap components with React.
 - react-infinite-scroll-component: Implemented infinite scrolling.
 - react-router-dom: Provided routing capabilities.
+- stylelint
+- eslint
+- prop-type
     
 ##### Programs
 - [erdlab](https://erdlab.io/)
@@ -323,20 +326,20 @@ All returned with no errors or warnings to show
 [Profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Fprofiles%2F2)
 
 [Recipe page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Frecipes%2F11)
-
-
 </details>
 
 
 #### CSS
 
-All custom css ran through [Stylelint](https://www.npmjs.com/package/stylelint) with 0 errors.
+All custom css ran through [Stylelint](https://www.npmjs.com/package/stylelint) with no errors.
 
 ![stylelint](/readme/stylelint.png)
 
-#### JS
+#### JSX
 
-All custom js ran through [JSHint](https://jshint.com/)
+All custom JSX ran through [ESLint](https://eslint.org/) with no errors.
+
+![eslint](/readme/eslint.png)
 
 
 ### Performance

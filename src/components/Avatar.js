@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/Avatar.module.css';
+import PropTypes from 'prop-types';
 
 const Avatar = ({ src, height = 45, text }) => {
   return (
@@ -18,6 +19,12 @@ const Avatar = ({ src, height = 45, text }) => {
       {text}
     </span>
   );
+};
+
+Avatar.propTypes = {
+  src: PropTypes.string.isRequired,
+  height: PropTypes.number,
+  text: PropTypes.node,
 };
 
 export default Avatar;

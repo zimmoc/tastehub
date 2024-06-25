@@ -8,6 +8,7 @@ import { MoreDropdown } from '../MoreDropDown';
 import { axiosRes } from '../../api/axiosDefaults';
 import CommentEditForm from './CommentEditForm';
 import { useProfileData } from '../../contexts/ProfileDataContext';
+import PropTypes from 'prop-types';
 
 const Comment = (props) => {
   const {
@@ -94,6 +95,17 @@ const Comment = (props) => {
       </Media>
     </div>
   );
+};
+
+Comment.propTypes = {
+  profile_id: PropTypes.number.isRequired,
+  profile_image: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
+  updated_at: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  setRecipe: PropTypes.func.isRequired,
+  setComments: PropTypes.func.isRequired,
 };
 
 export default Comment;

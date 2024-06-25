@@ -15,7 +15,6 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../styles/App.module.css';
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
-import { axiosReq } from '../../api/axiosDefaults';
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -103,7 +102,7 @@ function SignInForm() {
         </Container>
         <Container className={`pb-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up now!</span>
+            Don&apos;t have an account? <span>Sign up now!</span>
           </Link>
         </Container>
       </Col>

@@ -18,8 +18,9 @@ import Asset from '../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../utils/utils';
 import PopularProfiles from '../components/profiles/PopularProfiles';
+import PropTypes from 'prop-types';
 
-function HomePage({ message, filter = '' }) {
+function HomePage({ message, filter }) {
   const [recipes, setRecipes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -74,7 +75,7 @@ function HomePage({ message, filter = '' }) {
         </Container>
         {hasLoaded ? (
           <>
-            {recipes.results.length ? (
+            {/* {recipes.results.length ? (
               <InfiniteScroll
                 children={recipes.results.map((recipe) => (
                   <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
@@ -84,6 +85,21 @@ function HomePage({ message, filter = '' }) {
                 hasMore={!!recipes.next}
                 next={() => fetchMoreData(recipes, setRecipes)}
               />
+            ) : (
+              <Container className={appStyles.Content}>
+                <Asset src={NoResults} message={message} />
+              </Container>
+            )} */}
+            {recipes.results.length ? (
+              <InfiniteScroll
+                dataLength={recipes.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!recipes.next}
+                next={() => fetchMoreData(recipes, setRecipes)}>
+                {recipes.results.map((recipe) => (
+                  <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
+                ))}
+              </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
@@ -104,5 +120,14 @@ function HomePage({ message, filter = '' }) {
     </Row>
   );
 }
+
+HomePage.propTypes = {
+  message: PropTypes.string.isRequired,
+  filter: PropTypes.string,
+};
+
+HomePage.defaultProps = {
+  filter: '',
+};
 
 export default HomePage;

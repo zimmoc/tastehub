@@ -13,6 +13,7 @@ import UsernameForm from './components/profiles/UsernameForm';
 import UserPasswordForm from './components/profiles/UserPasswordForm';
 import ProfileEditForm from './components/profiles/ProfileEditForm';
 import NavBar from './components/NavBar';
+import React from 'react';
 
 function App() {
   const currentUser = useCurrentUser();

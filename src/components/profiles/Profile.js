@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
+import PropTypes from 'prop-types';
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 50 } = props;
@@ -69,6 +70,19 @@ const Profile = (props) => {
       )}
     </>
   );
+};
+
+Profile.propTypes = {
+  profile: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    following_id: PropTypes.number,
+    owner: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    followers_count: PropTypes.number,
+  }).isRequired,
+  mobile: PropTypes.bool,
+  imageSize: PropTypes.number,
 };
 
 export default Profile;

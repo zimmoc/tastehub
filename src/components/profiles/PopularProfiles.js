@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Asset from '../Asset';
 import Profile from './Profile';
 import { useProfileData } from '../../contexts/ProfileDataContext';
+import PropTypes from 'prop-types';
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
@@ -36,6 +37,10 @@ const PopularProfiles = ({ mobile }) => {
       )}
     </Container>
   );
+};
+
+PopularProfiles.propTypes = {
+  mobile: PropTypes.bool.isRequired,
 };
 
 export default PopularProfiles;

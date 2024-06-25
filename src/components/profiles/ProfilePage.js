@@ -131,24 +131,24 @@ function ProfilePage() {
       <hr className="w-50" style={{ backgroundColor: '#F38A29' }} />
       <p className="text-center">
         {profile?.name ? profile?.name.split(' ')[0] : profile?.owner}
-        's recipes
+        &apos;s recipes
       </p>
       <hr className="w-50" style={{ backgroundColor: '#F38A29' }} />
 
       {profileRecipes.results.length ? (
         <InfiniteScroll
-          children={profileRecipes.results.map((recipe) => (
+          dataLength={profileRecipes.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileRecipes.next}
+          next={() => fetchMoreData(profileRecipes, setProfileRecipes)}>
+          {profileRecipes.results.map((recipe) => (
             <Recipe
               key={recipe.id}
               {...recipe}
               setRecipes={setProfileRecipes}
             />
           ))}
-          dataLength={profileRecipes.results.length}
-          loader={<Asset spinner />}
-          hasMore={!!profileRecipes.next}
-          next={() => fetchMoreData(profileRecipes, setProfileRecipes)}
-        />
+        </InfiniteScroll>
       ) : (
         <Asset
           src={NoResults}

@@ -10,6 +10,7 @@ import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import PropTypes from 'prop-types';
 
 function CommentCreateForm(props) {
   const { recipe, setRecipe, setComments, profileImage, profile_id } = props;
@@ -75,5 +76,13 @@ function CommentCreateForm(props) {
     </Form>
   );
 }
+
+CommentCreateForm.propTypes = {
+  recipe: PropTypes.number.isRequired,
+  setRecipe: PropTypes.func.isRequired,
+  setComments: PropTypes.func.isRequired,
+  profileImage: PropTypes.string.isRequired,
+  profile_id: PropTypes.number.isRequired,
+};
 
 export default CommentCreateForm;
