@@ -37,6 +37,7 @@ const Recipe = (props) => {
     recipePage,
     setRecipes,
     name,
+    following_id,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -127,11 +128,6 @@ const Recipe = (props) => {
             <span className={css.UpdatedAt}>{updated_at}</span>
           </Col>
           <Col className="d-flex justify-content-end align-items-center pr-3">
-            <Button
-              className={`${btnStyles.Button} ${btnStyles.Orange} mr-3`}
-              onClick={() => {}}>
-              Follow
-            </Button>
             {is_owner && recipePage && (
               <MoreDropdown
                 className="m-0 p-0 ml-0"

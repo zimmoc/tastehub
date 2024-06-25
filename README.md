@@ -14,7 +14,7 @@ TasteHub wants to bring food lovers together to share and find new recipes. It's
 
 ### Static Sidebar
 
-The static sidebar is designed to follow the user throughout the site, providing easy access to key areas. It includes:
+The static sidebar is designed to follow the user throughout the site, providing easy access to key pages. It includes:
 
 - **Profile Card:**
   - **Avatar**: Displays the user's profile picture.
@@ -29,7 +29,7 @@ The static sidebar is designed to follow the user throughout the site, providing
   - **Sign Out**: Sign out button.
 
 
-The sidebar sticks with you as you navigate the site, making it easy to jump between different sections. With quick links to your feeds, your recipes, the recipe creation page, and the sign-out button, everything you need is right there. Plus, your profile card—complete with your avatar, display name, username, and a button to view your profile—keeps your personal info and profile access handy.
+The sidebar stays with you as you navigate the site, making it easy to switch between different sections. It provides quick links to your feeds, your recipes, the recipe creation page, and the sign-out button, ensuring everything you need is always accessible. Additionally, your profile card displays your avatar, display name, username, and includes a button to view your profile, keeping your personal info and profile access within easy reach.
 
 ![Sidebar](/readme/sidebar.png)
 
@@ -221,29 +221,29 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 ## Project structure
 
-###### Page structure
+#### Page structure
 
 ![Page Structure](/readme/page_structure.png)
 
-##### Mockup
+#### Mockup
 
 I created a mockup in Figma that uses a layout similar to popular social media sites. This design helps new users feel familiar and comfortable right away. This design language is used across the site, no matter what components are showing.
 <br>
 ![Mockup](/readme/mockup.png)
 
-##### Entity-Relationship Diagram
+#### Entity-Relationship Diagram
 
 The final database schema is essentially the same, but with some changes to the types of fields due to the limitations of the website I used.
 
 ![erd](/readme/erd.png)
 
-##### Color schemes and why
+#### Color schemes
 
 The primary color is a warm shade of orange, chosen for its energizing, passionate, and positive qualities. The neutral colors include a dark background for the main areas, creating a comfortable contrast, and a lighter grey for all the content cards to make them stand out. Text color is a clean white for clear readability, while the secondary text color is a light grey to maintain good readability but not draw attention. A shade between the main background color and the secondary grey color is used to create a slight shadow effect, making the components pop a little more.
 
 These colors were selected to create a warm, welcoming atmosphere that fosters creativity and passion, with soft darker colors serving as a backdrop to enhance the overall design. I opted for a dark theme because it’s currently very popular and, based on my personal experience, I find dark mode to be **much** more preferable.
 
-##### Typography
+#### Typography
 __Roboto__
 I chose Roboto because it's a clean, modern font that's easily readable.
 
@@ -252,7 +252,7 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 
 ### Languages Used
 
-- HTML, CSS, Python, JSX
+- HTML, CSS, JSX
 
 ### Framework, Libraries and Programs
 
@@ -325,36 +325,47 @@ All custom js ran through [JSHint](https://jshint.com/)
 # Heroku Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
 
+Prerequisites:
+- Create 'Procfile' in your project folder(Note caps and no file tag)
+- Add our web worker: 'web: serve -s build'
+
+<hr>
+
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repositoy you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
+
+The app should now be deployed.
+
 
 
 
 # Run Locally
 Note that you need your own backend API
 
-Clone the project
+Open up your preffered IDE
 
+Clone the project:
 ```bash
-  git clone https://github.com/zimmoc/propertize.git
+  git clone https://github.com/zimmoc/tastehub.git
 ```
 
-Go to the project directory
-
+Install dependencies:
 ```bash
-  cd propertize
+  npm install
 ```
 
-Install dependencies
-- Recommended to do this in a virtual python env
-
+Run application
 
 ```bash
-  pip install -r requirements.txt
-```
-
-Start the server
-
-```bash
-  python3 manage.py runserver
+  npm start
 ```
 
  
@@ -363,12 +374,15 @@ Start the server
 
 All installed libraries have been implented with the help of their respective documentation and examples
 
-Countless of stackoverflow posts whenever i had problems.
+Countless of stackoverflow posts.
 
-Random forum posts from 2010, found through googling problems
+Random forum posts found through googling problems
 
 ### Content 
 
 
 - The icons used were taken from [Font Awesome](https://fontawesome.com/)
-- Favicon/Logo by [Font Awesome](https://fontawesome.com/)
+- Favicon/Logo by [Logo](https://logo.com/)
+- Demo pfp images [Profile pictures](https://www.pexels.com/collections/profile-pictures-oak37r2/)
+- The celebrity chefs images were taken from their respective wikipedia pages
+- Demo recipes taken from random recipe sites

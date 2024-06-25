@@ -117,7 +117,7 @@ const NavBar = () => {
           aria-controls="basic-navbar-nav"
           className={styles.navbarToggler}
           style={{ border: 'solid 1px #ffffff80' }}>
-          <i class="fa-solid fa-bars" />
+          <i className="fa-solid fa-bars" />
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
