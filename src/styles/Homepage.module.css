@@ -8,18 +8,18 @@
 .SearchBar input {
     border-radius: 10px;
     color: #fff;
-    background-color: #222222;
+    background-color: #222;
     padding-left: 40px;
     margin-bottom: 16px;
     border: 0;
-    box-shadow: inset 0px 0px 1px 2px #202020;
+    box-shadow: inset 0 0 1px 2px #202020;
 }
 
 .SearchBar input:focus {
-    background-color: #222222;
+    background-color: #222;
     color: #fff;
     border-color: #F38A29;
-    box-shadow: 0 0 5px rgba(243, 139, 41, 0.5);
+    box-shadow: 0 0 5px rgba(243, 139, 41, 50%);
 }
 
 .SearchIcon {

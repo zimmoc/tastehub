@@ -330,7 +330,9 @@ All returned with no errors or warnings to show
 
 #### CSS
 
-All custom css ran through [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
+All custom css ran through [Stylelint](https://www.npmjs.com/package/stylelint) with 0 errors.
+
+![stylelint](/readme/stylelint.png)
 
 #### JS
 

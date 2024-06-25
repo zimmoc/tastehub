@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
-import styles from '../../../styles/RecipeCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
 import SideBar from '../../sidebar/SideBar';
@@ -302,7 +301,7 @@ function RecipeEditForm() {
       <Col className={`p-0 pl-3 pr-3 ${appStyles.MiddleColumn}`} md={8} lg={9}>
         <Form onSubmit={handleSubmit}>
           <Col className="mb-3">
-            <Container className={`${appStyles.Content} ${styles.Container}`}>
+            <Container className={`${appStyles.Content}`}>
               <Row className="p-2">
                 <Col className="d-flex flex-column justify-content-center align-items-center">
                   {imageUpload}
@@ -318,7 +317,7 @@ function RecipeEditForm() {
           </Col>
           <Col className="mb-3">
             <Container
-              className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
+              className={`${appStyles.Content} d-flex flex-column justify-content-center`}>
               <Row className="p-2">
                 <Col md={4}>
                   {ingredientsField}
