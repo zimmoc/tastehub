@@ -42,38 +42,31 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/">
-        <i className="fas fa-house" />
-        Home
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/following">
-        <i className="fas fa-user-group" />
+        <i className="fas fa-user-group pr-2" />
         Following
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked">
-        <i className="fas fa-heart" />
+        <i className="fas fa-heart pr-2" />
         Liked
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/recipes">
-        <i className="fas fa-book-bookmark" />
+        <i className="fas fa-book-bookmark pr-2" />
         My Recipes
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt" />
+        <i className="fas fa-sign-out-alt pr-2" />
         Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
-        to={`/profiles/${currentUser?.profile__id}`}>
+        to={`/profiles/${currentUser?.profile.id}`}>
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
     </>

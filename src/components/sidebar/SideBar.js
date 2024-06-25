@@ -136,6 +136,7 @@ function SideBar() {
             isActive('/') ? css.NavItemActive : ''
           }`}>
           <NavLink
+            exact
             to="/"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
