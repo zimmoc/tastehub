@@ -3,12 +3,16 @@
 TasteHub wants to bring food lovers together to share and find new recipes. It's here to make cooking fun and social. You can explore different recipes, like your favorites, and connect with others who love to cook. By letting you like, comment, and follow other users, TasteHub makes it easy to learn and enjoy cooking more.
 
 
-#### [Live demo page](https://tastehub-c1a3a811ccbe.herokuapp.com/)
+##### [Live demo page](https://tastehub-c1a3a811ccbe.herokuapp.com/)
 
 
 ![Responsive Mockup](/readme/all-devices-black.png)
 
 
+
+### Backend api
+
+[tastehub-drf](https://github.com/zimmoc/tastehub-drf)
 
 # Features
 
@@ -157,35 +161,46 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 ### Following User Stories Were Implemented in the Project
 
-#### Epic: User Authentication and Profile Management
+<details>
+<summary>Epic: User Authentication and Profile Management</summary>
 - As a new user, I want to sign up with a username and password so that I can create an account.
 - As a registered user, I want to log in with my credentials so that I can access my account.
 - As a user, I want to view my and other users' profile details so that I can check their stats and recipes.
 - As a user, I want to view and edit my profile details so that I can keep my information up to date.
 - As a user, I want to upload a profile picture so that my profile is personalized.
 - As a logged-in user, I want to log out so that I can end my session securely.
+</details>
 
-#### Epic: Recipe Management
-- As a user, I want to create a new recipe by filling out a form so that I can share it with others.
-- As a user, I want to view a feed of recipes so that I can find new dishes to try.
-- As a user, I want to delete my recipes so that I can manage my content.
-- As a user, I want to format the ingredient list clearly so that others can follow the recipe easily.
-- As a user, I want to edit my existing recipes so that I can update information or correct mistakes.
+<details>
+  <summary>Epic: Recipe Management</summary>
+  - As a user, I want to create a new recipe by filling out a form so that I can share it with others.
+  - As a user, I want to view a feed of recipes so that I can find new dishes to try.
+  - As a user, I want to delete my recipes so that I can manage my content.
+  - As a user, I want to format the ingredient list clearly so that others can follow the recipe easily.
+  - As a user, I want to edit my existing recipes so that I can update information or correct mistakes.
+</details>
 
-#### Epic: Social Feed
-- As a user, I want to see a global feed with all posts so that I can discover new recipes from all users.
-- As a user, I want to interact with posts directly from the feed by liking them.
-- As a user, I want to see a feed with my own posts and the posts of users I follow.
+<details>
+  <summary>Epic: Social Feed</summary>
+  - As a user, I want to see a global feed with all posts so that I can discover new recipes from all users.
+  - As a user, I want to interact with posts directly from the feed by liking them.
+  - As a user, I want to see a feed with my own posts and the posts of users I follow.
+</details>
 
-#### Epic: Social Interactions
-- As a user, I want to like recipes so that I can show my appreciation for them.
-- As a user, I want to comment on recipes so that I can share my thoughts or ask questions.
-- As a user, I want to follow other users so that I can see their recipes in my feed.
-- As a user, I want to edit my comments to add context or fix typos.
-- As a user, I want the ability to delete my comment.
+<details>
+  <summary>Epic: Social Interactions</summary>
+  - As a user, I want to like recipes so that I can show my appreciation for them.
+  - As a user, I want to comment on recipes so that I can share my thoughts or ask questions.
+  - As a user, I want to follow other users so that I can see their recipes in my feed.
+  - As a user, I want to edit my comments to add context or fix typos.
+  - As a user, I want the ability to delete my comment.
+</details>
 
-#### Epic: Search and Filter
-- As a user, I want to search for recipes by title or ingredient so that I can find specific dishes.
+<details>
+  <summary>Epic: Search and Filter</summary>
+  - As a user, I want to search for recipes by title or ingredient so that I can find specific dishes.
+</details>
+<br>
 
 [GitHub Projects](https://github.com/users/zimmoc/projects/3)
 
@@ -295,6 +310,22 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 #### HTML
 
 Tested HTML files through [w3c](https://validator.w3.org/nu/)
+All returned with no errors or warnings to show
+<details>
+<summary>Tests</summary>
+
+[Home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2F)
+
+[Sign in](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Fsignin)
+
+[Sign up](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Fsignup)
+
+[Profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Fprofiles%2F2)
+
+[Recipe page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftastehub-c1a3a811ccbe.herokuapp.com%2Frecipes%2F11)
+
+
+</details>
 
 
 #### CSS
