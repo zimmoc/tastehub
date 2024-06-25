@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../../../styles/RecipePage.module.css';
 
 function IngredientsList({ ingredients }) {
   return (
@@ -9,7 +10,9 @@ function IngredientsList({ ingredients }) {
       <ul className="w-100 p-0 m-0 pl-2 pr-2" style={{ listStyleType: 'none' }}>
         {ingredients.map((ingredient, index) => (
           <>
-            <li key={index}>{ingredient}</li>
+            <li key={index} className={styles.RecipeIngredients}>
+              {ingredient}
+            </li>
             <hr
               className="w-100"
               style={{ backgroundColor: 'rgba(243, 139, 41, 0.5)' }}

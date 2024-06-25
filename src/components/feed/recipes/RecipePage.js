@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 
 import appStyles from '../../../styles/App.module.css';
 import commentStyles from '../../../styles/CommentCreateEditForm.module.css';
+import styles from '../../../styles/RecipePage.module.css';
 import SideBar from '../../sidebar/SideBar';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../../../styles/RecipePage.module.css';
 
 function InstructionsList({ instructions }) {
   return (
@@ -9,7 +10,7 @@ function InstructionsList({ instructions }) {
       <ol className="w-100 p-0 m-0">
         {instructions.map((instruction, index) => (
           <>
-            <li className="pl-3" key={index}>
+            <li key={index} className={`pl-3 ${styles.RecipeIngredients}`}>
               {instruction}
             </li>
             <hr
