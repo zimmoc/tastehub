@@ -278,14 +278,14 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 
 ##### Libraries
 
-- axios: Used for making HTTP requests.
-- jwt-decode: Used for decoding JSON Web Tokens.
-- react-bootstrap: Integrated Bootstrap components with React.
-- react-infinite-scroll-component: Implemented infinite scrolling.
-- react-router-dom: Provided routing capabilities.
-- stylelint
-- eslint
-- prop-type
+- **axios**: Used for making HTTP requests.
+- **jwt-decode**: Used for decoding JSON Web Tokens.
+- **react-bootstrap**: Integrated Bootstrap components with React.
+- **react-infinite-scroll-component**: Implemented infinite scrolling.
+- **react-router-dom**: Provided routing capabilities.
+- **stylelint**: A CSS linter that helps you avoid errors and enforce conventions in your styles.
+- **eslint**: A static code analysis tool for identifying and fixing problems in JavaScript code, used specifically for linting JSX in this project.
+- **prop-types**: Runtime type checking for React props, ensuring components use the correct data types.
     
 ##### Programs
 - [erdlab](https://erdlab.io/)
@@ -308,7 +308,7 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 ##### Manual focused
 
 
-### Validator
+### Validators
 
 #### HTML
 
