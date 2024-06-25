@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Col,
-  Card,
-  Media,
-  Row,
-  Button,
-  OverlayTrigger,
-  Tooltip,
-} from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 import css from '../../../styles/Recipe.module.css';
-import btnStyles from '../../../styles/Button.module.css';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 import Avatar from '../../Avatar';
-import { axiosReq, axiosRes } from '../../../api/axiosDefaults';
+import { axiosRes } from '../../../api/axiosDefaults';
 import { MoreDropdown } from '../../MoreDropDown';
 import { useProfileData } from '../../../contexts/ProfileDataContext';
 
@@ -30,14 +26,8 @@ const Recipe = (props) => {
     description,
     image,
     updated_at,
-    ratings_count,
-    ratings_average,
-    instructions,
-    ingredients,
     recipePage,
     setRecipes,
-    name,
-    following_id,
   } = props;
 
   const currentUser = useCurrentUser();

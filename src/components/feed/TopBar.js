@@ -1,6 +1,7 @@
 import React from 'react';
 import css from '../../styles/TopBar.module.css';
-import { Navbar, Nav } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 

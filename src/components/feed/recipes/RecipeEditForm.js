@@ -10,7 +10,9 @@ import styles from '../../../styles/RecipeCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
 import SideBar from '../../sidebar/SideBar';
-import { Alert, Image, InputGroup } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
+import Image from 'react-bootstrap/Image';
+import InputGroup from 'react-bootstrap/InputGroup';
 import {
   useHistory,
   useParams,

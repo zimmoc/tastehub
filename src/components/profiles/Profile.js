@@ -3,12 +3,15 @@ import styles from '../../styles/Profile.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../Avatar';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 50 } = props;
-  const { id, following_id, image, owner } = profile;
+  const { following_id, owner } = profile;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;

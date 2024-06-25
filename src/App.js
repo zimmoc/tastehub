@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import css from './styles/App.module.css';
 import './api/axiosDefaults';
 import SignInOutPage from './pages/SignInOutPage';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import RecipeCreateForm from './components/feed/recipes/RecipeCreateForm';
 import RecipePage from './components/feed/recipes/RecipePage';
 import { useCurrentUser } from './contexts/CurrentUserContext';

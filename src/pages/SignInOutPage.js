@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBar from '../components/sidebar/SideBar';
-import { Container, Row, Col } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import SignInForm from './auth/SignInForm';
 import SignUpForm from './auth/SignUpForm';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';

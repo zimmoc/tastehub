@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from '../components/sidebar/SideBar';
-import { Container, Row, Col, Card, Form } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+
 import css from '../styles/Homepage.module.css';
 import appStyles from '../styles/App.module.css';
 import Recipe from '../components/feed/recipes/Recipe';

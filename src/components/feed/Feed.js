@@ -2,7 +2,7 @@ import React from 'react';
 import TopBar from './TopBar';
 import Recipe from './recipes/Recipe';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import { Col } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
 
 function Feed() {
   const location = useLocation();

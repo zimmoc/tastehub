@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Comment.module.css';
 import Avatar from '../Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { Media } from 'react-bootstrap';
+import Media from 'react-bootstrap/Media';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { MoreDropdown } from '../MoreDropDown';
 import { axiosRes } from '../../api/axiosDefaults';

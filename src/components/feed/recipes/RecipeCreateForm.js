@@ -12,7 +12,10 @@ import styles from '../../../styles/RecipeCreateEditForm.module.css';
 import appStyles from '../../../styles/App.module.css';
 import btnStyles from '../../../styles/Button.module.css';
 import SideBar from '../../sidebar/SideBar';
-import { Alert, Image, InputGroup } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
+import Image from 'react-bootstrap/Image';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 import Asset from '../../Asset';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../../api/axiosDefaults';

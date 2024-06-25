@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+
 import { NavLink } from 'react-router-dom';
 import {
   useCurrentUser,

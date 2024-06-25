@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 
 import styles from '../../styles/CommentCreateEditForm.module.css';
 import appStyles from '../../styles/App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
-import { Button, Col, Row } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function CommentCreateForm(props) {
   const { recipe, setRecipe, setComments, profileImage, profile_id } = props;

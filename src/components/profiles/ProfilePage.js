@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 
 import Asset from '../../components/Asset';
 import NoResults from '../../assets/no-results.png';
@@ -14,7 +13,8 @@ import btnStyles from '../../styles/Button.module.css';
 import PopularProfiles from './PopularProfiles';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import SideBar from '../sidebar/SideBar';
-import { Button, Card } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import {
   useProfileData,
   useSetProfileData,

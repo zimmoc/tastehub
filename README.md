@@ -290,10 +290,6 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 ##### Manual focused
 
 
-
-
-
-
 ### Validator
 
 #### HTML
@@ -305,8 +301,6 @@ Tested HTML files through [w3c](https://validator.w3.org/nu/)
 
 All custom css ran through [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
 
-![Jigsaw](/static/img/readme/css.png)
-
 #### JS
 
 All custom js ran through [JSHint](https://jshint.com/)
@@ -314,9 +308,9 @@ All custom js ran through [JSHint](https://jshint.com/)
 
 ### Performance
 
-- __Tests performed using [Lightouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)__
+- __Test performed using [Lightouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)__
 
-![lighthouse_scores](/static/img/readme/score.png)
+![lighthouse_scores](/readme/score.png)
 
 
 

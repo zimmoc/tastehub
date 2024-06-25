@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import appStyles from '../../styles/App.module.css';
 import styles from '../../styles/PopularProfiles.module.css';
-import { Container } from 'react-bootstrap';
-import { axiosReq } from '../../api/axiosDefaults';
+import Container from 'react-bootstrap/Container';
 import Asset from '../Asset';
 import Profile from './Profile';
 import { useProfileData } from '../../contexts/ProfileDataContext';
