@@ -1,4 +1,5 @@
-import React, { useEffect, useState, lazy, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
+import Recipe from '../components/feed/recipes/Recipe';
 import SideBar from '../components/sidebar/SideBar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -19,11 +20,6 @@ import { fetchMoreData } from '../utils/utils';
 import PopularProfiles from '../components/profiles/PopularProfiles';
 import PropTypes from 'prop-types';
 
-const Recipe = lazy(() => import('../components/feed/recipes/Recipe'));
-
-const preloadRecipeComponent = () =>
-  import('../components/feed/recipes/Recipe');
-
 function HomePage({ message, filter }) {
   const [recipes, setRecipes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -38,7 +34,6 @@ function HomePage({ message, filter }) {
         );
         setRecipes(data);
         setHasLoaded(true);
-        preloadRecipeComponent();
       } catch (err) {
         console.log(err);
       }
@@ -81,15 +76,9 @@ function HomePage({ message, filter }) {
                 loader={<Asset spinner />}
                 hasMore={!!recipes.next}
                 next={() => fetchMoreData(recipes, setRecipes)}>
-                <Suspense fallback={<Asset spinner />}>
-                  {recipes.results.map((recipe) => (
-                    <Recipe
-                      key={recipe.id}
-                      {...recipe}
-                      setRecipes={setRecipes}
-                    />
-                  ))}
-                </Suspense>
+                {recipes.results.map((recipe) => (
+                  <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
+                ))}
               </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
