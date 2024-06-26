@@ -45,12 +45,7 @@ function HomePage({ message, filter }) {
     };
 
     setHasLoaded(false);
-    const timer = setTimeout(() => {
-      fetchRecipes();
-    }, 1000);
-    return () => {
-      clearTimeout(timer);
-    };
+    fetchRecipes();
   }, [filter, query, pathname]);
 
   return (
