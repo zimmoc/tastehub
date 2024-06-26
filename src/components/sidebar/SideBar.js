@@ -159,6 +159,7 @@ function SideBar() {
             isActive('/following') ? css.NavItemActive : ''
           }`}>
           <NavLink
+            exact
             to="/following"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
@@ -171,6 +172,7 @@ function SideBar() {
             isActive('/liked') ? css.NavItemActive : ''
           }`}>
           <NavLink
+            exact
             to="/liked"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>
@@ -183,6 +185,7 @@ function SideBar() {
             isActive('/recipes') ? css.NavItemActive : ''
           }`}>
           <NavLink
+            exact
             to="/recipes"
             className={`${css.NavLink} d-flex justify-content-start align-items-center h-100`}
             activeClassName={css.ActiveLink}>

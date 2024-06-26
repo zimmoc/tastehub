@@ -167,7 +167,7 @@ function ProfilePage() {
         <SideBar />
       </Col>
       <Col className={`${appStyles.MiddleColumn} p-0 pl-3 pr-3`} md={8} lg={6}>
-        <PopularProfiles mobile />
+        <PopularProfiles mobile={true} />
         {hasLoaded ? (
           <>
             {mainProfile}
@@ -181,7 +181,7 @@ function ProfilePage() {
         lg={3}
         className={`${appStyles.SideColumn}d-none d-lg-block p-0 pl-1`}>
         <Card className={appStyles.Card}>
-          <PopularProfiles />
+          <PopularProfiles mobile={false} />
         </Card>
       </Col>
     </Row>
