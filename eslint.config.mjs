@@ -13,14 +13,22 @@ export default [
       },
       globals: {
         ...globals.browser,
-        ...globals.jest, // Add Jest globals here
+        ...globals.jest,
       },
     },
     settings: {
       react: {
-        version: 'detect', // Automatically detect the react version
+        version: 'detect',
       },
     },
+    overrides: [
+      {
+        files: ['**/*.test.js', '**/*.spec.js'],
+        rules: {
+          'react/react-in-jsx-scope': 'off',
+        },
+      },
+    ],
   },
   pluginJs.configs.recommended,
   pluginReactConfig,

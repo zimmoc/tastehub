@@ -75,7 +75,7 @@ export const ProfileDataProvider = ({ children }) => {
           [profileId]: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     }
   };
