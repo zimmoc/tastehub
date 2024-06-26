@@ -61,4 +61,62 @@ export const handlers = [
     ctx.set('Access-Control-Allow-Origin', '*');
     return res(ctx.status(200));
   }),
+
+  rest.get(`${baseURL}recipes/:id`, (req, res, ctx) => {
+    const { id } = req.params;
+    return res(
+      ctx.json({
+        id,
+        owner: 'postington',
+        profile_id: 2,
+        profile_image:
+          'https://res.cloudinary.com/dpokxro3u/image/upload/v1/media/images/1_artuz9',
+        comments_count: 4,
+        likes_count: 10,
+        like_id: null,
+        title: 'Delicious Recipe',
+        description: 'This is a great recipe for testing.',
+        image:
+          'https://res.cloudinary.com/dpokxro3u/image/upload/v1/media/images/1_artuz9',
+        updated_at: '25 Jun 2024',
+      }),
+      ctx.set('Access-Control-Allow-Origin', '*')
+    );
+  }),
+
+  rest.get(`${baseURL}profiles/`, (req, res, ctx) => {
+    return res(
+      ctx.json([
+        {
+          id: 2,
+          owner: 'postington',
+          created_at: '25 Jun 2024',
+          updated_at: '25 Jun 2024',
+          bio: 'I am HIM. Scroll down for mediocre recipes',
+          name: 'Poster Postington',
+          image:
+            'https://res.cloudinary.com/dpokxro3u/image/upload/v1/media/images/1_artuz9',
+          is_owner: true,
+          following_id: null,
+          recipes_count: 4,
+          followers_count: 10,
+          following_count: 2,
+        },
+      ]),
+      ctx.set('Access-Control-Allow-Origin', '*')
+    );
+  }),
+
+  rest.post(`${baseURL}likes/`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        id: 1,
+      }),
+      ctx.set('Access-Control-Allow-Origin', '*')
+    );
+  }),
+
+  rest.delete(`${baseURL}likes/:id`, (req, res, ctx) => {
+    return res(ctx.status(204), ctx.set('Access-Control-Allow-Origin', '*'));
+  }),
 ];

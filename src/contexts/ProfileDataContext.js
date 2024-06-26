@@ -81,21 +81,28 @@ export const ProfileDataProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    let isMounted = true;
+
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
           '/profiles/?ordering=-followers_count'
         );
-        setProfileData((prevState) => ({
-          ...prevState,
-          popularProfiles: data,
-        }));
+        if (isMounted) {
+          setProfileData((prevState) => ({
+            ...prevState,
+            popularProfiles: data,
+          }));
+        }
       } catch (err) {
         // console.log(err);
       }
     };
 
     handleMount();
+    return () => {
+      isMounted = false;
+    };
   }, [currentUser]);
 
   return (

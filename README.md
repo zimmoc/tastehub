@@ -10,11 +10,11 @@ TasteHub wants to bring food lovers together to share and find new recipes. It's
 
 
 
-### Backend api
+## Backend api
 
 [tastehub-drf](https://github.com/zimmoc/tastehub-drf)
 
-# Features
+## Features
 
 ### Static Sidebar
 
@@ -140,9 +140,9 @@ Under the user's profile card, there is a feed containing all the recipes that t
 Additionally, while a rating system was considered, I decided against it for now to avoid making users feel judged by ratings. Instead, the number of likes and comments serves as an indicator of a recipe's popularity and quality. However, a rating system is not ruled out for future implementation.
 
 
-# Planning
+## Planning
 
-## Idea
+### Idea
 
 TasteHub is a social recipe app where you can easily share, save, and like recipes. You can log in, post your own recipes, and find new ones with search and filter options. It’s got a simple design and lets you rate, comment, and follow other users, making it easy to manage all your cooking ideas.
 
@@ -372,12 +372,403 @@ I chose Roboto because it's a clean, modern font that's easily readable.
     - was used to fix my grammar
     
 
-# Testing
+## Testing
+
+### Automated testing
+
+<details>
+<summary>NavBar</summary>
+
+<hr />
+
+### Summary
+These tests cover the essential functionalities of the NavBar component, ensuring that it displays the correct links based on the user's authentication status and that the navbar toggler functions as expected. By validating these functionalities, we can be confident that the navigation experience for users is consistent and reliable.
+
+<hr />
+
+#### Test: `renders NavBar`
+- **Purpose**: To verify that the NavBar component renders correctly.
+- **What was tested**:
+  - Rendering the NavBar component.
+  - Checking if the "Sign in" link is present.
+- **Why**: To ensure that the NavBar component is correctly displayed with the "Sign in" link for unauthenticated users.
+
+<hr />
+
+#### Test: `renders link to the user profile for a logged in user`
+- **Purpose**: To verify that the NavBar displays the profile link for authenticated users.
+- **What was tested**:
+  - Rendering the NavBar component within the `CurrentUserProvider`.
+  - Checking if the "Profile" link is present.
+- **Why**: To ensure that authenticated users can access their profile through the NavBar.
+
+<hr />
+
+#### Test: `renders Sign in and Sign out buttons on logout`
+- **Purpose**: To verify the functionality of the Sign out button.
+- **What was tested**:
+  - Rendering the NavBar component within the `CurrentUserProvider`.
+  - Clicking the "Sign out" link.
+  - Checking if the "Sign in" and "Sign up" links are present after logging out.
+- **Why**: To ensure that users can log out and see the appropriate navigation options for unauthenticated users.
+
+<hr />
+
+#### Test: `renders "Create recipe" link for logged in user`
+- **Purpose**: To verify that the "Create recipe" link is displayed for authenticated users.
+- **What was tested**:
+  - Rendering the NavBar component within the `CurrentUserProvider`.
+  - Checking if the "Create recipe" link is present.
+- **Why**: To ensure that authenticated users have access to the "Create recipe" functionality.
+
+<hr />
+
+#### Test: `does not render "Create recipe" link for logged out user`
+- **Purpose**: To verify that the "Create recipe" link is not displayed for unauthenticated users.
+- **What was tested**:
+  - Rendering the NavBar component.
+  - Checking if the "Create recipe" link is absent.
+- **Why**: To ensure that only authenticated users have access to the "Create recipe" functionality.
+
+<hr />
+
+#### Test: `navbar expands and collapses when toggler is clicked`
+- **Purpose**: To verify that the navbar toggler expands and collapses the navbar.
+- **What was tested**:
+  - Rendering the NavBar component.
+  - Clicking the navbar toggler button.
+  - Checking if the navbar has the 'show' class after toggling.
+  - Clicking the navbar toggler button again to collapse.
+  - Checking that the navbar does not have the 'show' class after toggling.
+- **Why**: To ensure that the navbar toggler functionality works correctly, providing a responsive navigation experience.
+
+</details>
+
+<details>
+<summary>SideBar</summary>
+
+### Summary
+
+These tests cover the essential functionalities of the SideBar component, ensuring that it displays the correct navigation options based on the user's authentication status. Specifically, they verify that logged-out users see options to sign in and sign up, while logged-in users have access to their profile, followed and liked items, and recipe creation. Additionally, the tests confirm that the logout functionality works correctly, transitioning the sidebar to display login options upon user logout. By validating these functionalities, we can be confident that the sidebar provides a consistent and reliable navigation experience for users.
+
+<hr />
+
+#### Test: `renders SideBar`
+- **Purpose**: To verify that the `SideBar` component renders correctly.
+- **What was tested**:
+  - Rendering the `SideBar` component.
+  - Checking if the "Sign in" link is present.
+- **Why**: To ensure that the `SideBar` component loads correctly and contains the expected elements.
+
+<hr />
+
+#### Test: `displays login options for logged-out users`
+- **Purpose**: To verify that the `SideBar` displays login options for logged-out users.
+- **What was tested**:
+  - Rendering the `SideBar` component.
+  - Checking if the "Sign in" and "Sign up" links are present.
+- **Why**: To ensure that logged-out users see the correct navigation options.
+
+<hr />
+
+#### Test: `displays profile and navigation options for logged-in users`
+- **Purpose**: To verify that the `SideBar` displays profile and navigation options for logged-in users.
+- **What was tested**:
+  - Rendering the `SideBar` component within the `CurrentUserProvider`.
+  - Checking if the "My profile", "Following", and "Liked" links are present.
+- **Why**: To ensure that logged-in users see the correct navigation options.
+
+<hr />
+
+#### Test: `handles logout functionality correctly`
+- **Purpose**: To verify that the logout functionality works correctly.
+- **What was tested**:
+  - Rendering the `SideBar` component within the `CurrentUserProvider`.
+  - Clicking the "Sign out" link.
+  - Checking if the "Sign in" and "Sign up" links are present after logout.
+- **Why**: To ensure that users are logged out correctly and see the appropriate navigation options.
+
+<hr />
+
+</details>
+
+<details>
+<summary>Recipe</summary>
+
+#### Test: `renders Recipe component`
+- **Purpose**: To verify that the `Recipe` component renders correctly.
+- **What was tested**:
+  - Rendering the `Recipe` component.
+  - Checking if the mockRecipe content is present.
+- **Why**: To ensure that the `Recipe` component loads correctly and contains the expected elements.
+
+</details>
+
+### Manual testing
 
 
-Automated testing goes here.
+<details>
+<summary>Feeds</summary>
 
-Manual testing goes here.
+### Test: Retrieve Recipes List on Homepage
+- **Purpose**: To verify that the list of recipes is retrieved and displayed on the homepage.
+- **Expected Result**: A list of recipes is loaded and displayed correctly.
+- **Method**:
+  1. Access the homepage of the application.
+  2. Verify that recipes are fetched and displayed.
+  3. Check the rendering of each recipe card to ensure all necessary details (title, description, image, etc.) are present and correctly formatted.
+- **Result**:
+  - Recipes are displayed without errors or missing data.
+  - Each recipe card contains all expected information.
+
+### Test: Following Feed on Homepage
+- **Purpose**: To verify that the following feed on the homepage displays recipes from users you follow.
+- **Expected Result**: Only recipes from users that the current user follows are shown in the feed.
+- **Method**:
+  1. Log in with a user who follows specific users.
+  2. Access the homepage and navigate to the following feed section.
+  3. Verify that only recipes from followed users are displayed.
+  4. Check that no recipes from users who are not followed by the current user appear in the feed.
+- **Result**:
+  - The following feed displays recipes exclusively from followed users.
+
+### Test: Liked Feed on Homepage
+- **Purpose**: To verify that the liked feed on the homepage displays recipes that the user has liked.
+- **Expected Result**: Only recipes that the current user has liked are shown in the liked feed.
+- **Method**:
+  1. Log in with a user who has liked specific recipes.
+  2. Navigate to the homepage and check the liked feed section.
+  3. Verify that only recipes that the user has liked are visible in the feed.
+  4. Ensure that recipes that the user has not liked do not appear in the feed.
+- **Result**:
+  - The liked feed displays recipes that the user has liked.
+
+</details>
+
+<details>
+<summary>Profile</summary>
+  ### Test: View Profile Information
+  - **Purpose**: To verify that the profile page displays user information correctly.
+  - **Expected Result**: Profile details including name, bio, recipe count, followers, and following are shown accurately.
+  - **Method**:
+    1. Navigate to a profile page.
+    2. Check for profile image, name, bio (if available), and stats.
+    3. Verify the follow/unfollow button functionality.
+  - **Result**:
+    - Profile information is displayed as expected, with correct stats and options to follow/unfollow.
+  
+  ### Test: Edit Profile Information
+  - **Purpose**: To verify that users can edit their profile information.
+  - **Expected Result**: Changes made to profile information (bio, image) are saved and reflected on the profile page.
+  - **Method**:
+    1. Navigate to the profile edit section.
+    2. Modify the profile bio or image.
+    3. Save changes and confirm they are updated on the profile page.
+  - **Result**:
+    - Profile changes are saved successfully and displayed correctly.
+  
+  ### Test: Infinite Scroll Functionality
+  - **Purpose**: To verify that infinite scroll works correctly on recipe or comments lists.
+  - **Expected Result**: Additional recipes or comments load as the user scrolls down the page.
+  - **Method**:
+    1. Scroll to the bottom of a long recipe or comments list.
+    2. Confirm that the loader appears briefly and new content is loaded.
+  - **Result**:
+    - Infinite scroll loads new comments smoothly without breaking the page layout.
+    - Infinite scroll loads new recipes smoothly without breaking the page layout.
+</details>
+
+<details>
+<summary>Navigation</summary>
+  ### Test: Navigate to Pages from Sidebar
+  - **Purpose**: To verify navigation to different pages from the Sidebar.
+  - **Expected Result**: Clicking on respective links in the Sidebar navigates to the correct pages.
+  - **Method**:
+    - **Home Link**:
+      1. Navigate to any page other than the Home page.
+      2. Click on the "Home" link in the Sidebar.
+      3. Verify that the application redirects to the Home page.
+      4. Check that the "Home" link is styled as active.
+  
+    - **Sign In Link**:
+      1. Navigate to any page.
+      2. Click on the "Sign In" link in the Sidebar.
+      3. Ensure that the application redirects to the Sign In page.
+      4. Verify that the "Sign In" link is styled as active.
+  
+    - **Sign Up Link**:
+      1. Navigate to any page.
+      2. Click on the "Sign Up" link in the Sidebar.
+      3. Ensure that the application redirects to the Sign Up page.
+  
+    - **Profile Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the profile link in the Sidebar.
+      3. Verify that the application redirects to the User Profile page.
+  
+    - **Sign Out Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the "Sign Out" link in the Sidebar.
+      3. Verify that the application logs the user out and redirects to the Home page.
+      4. Ensure that after signing out, the Sidebar shows links for signing in and signing up.
+  
+  ### Test: Navigate to Pages from Navbar
+  - **Purpose**: To verify navigation to different pages from the Navbar.
+  - **Expected Result**: Clicking on respective links in the Navbar navigates to the correct pages.
+  - **Method**:
+    - **Home Link**:
+      1. Navigate to any page other than the Home page.
+      2. Click on the application logo or the "Home" link in the Navbar.
+      3. Verify that the application redirects to the Home page.
+      4. Check that the "Home" link is styled as active.
+  
+    - **Create Recipe Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the "Create Recipe" link in the Navbar.
+      3. Verify that the application redirects to the Create Recipe page.
+      4. Check that the "Create Recipe" link is styled as active.
+  
+    - **Following Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the "Following" link in the Navbar.
+      3. Verify that the application redirects to the Following page.
+      4. Check that the "Following" link is styled as active.
+  
+    - **Liked Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the "Liked" link in the Navbar.
+      3. Verify that the application redirects to the Liked page.
+      4. Check that the "Liked" link is styled as active.
+  
+    - **Profile Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the user avatar or profile link in the Navbar.
+      3. Verify that the application redirects to the User Profile page.
+      4. Check that the profile link is styled as active.
+  
+    - **Sign Out Link** (Logged In):
+      1. Ensure the user is logged in.
+      2. Click on the "Sign Out" link in the Navbar.
+      3. Verify that the application logs the user out and redirects to the Home page.
+      4. Ensure that after signing out, the Navbar shows links for signing in and signing up.
+</details>
+
+
+<details>
+<summary>Recipe</summary>
+
+### Test: View Recipe Details
+- **Purpose**: To verify that the recipe details page displays recipe information correctly.
+- **Expected Result**: Recipe ingredients, instructions, and comments are displayed accurately.
+- **Method**:
+  1. Navigate to a recipe page.
+  2. Check for recipe title, ingredients list, and cooking instructions.
+  3. Verify the comments section renders correctly.
+- **Result**:
+  - Recipe details are shown correctly, including ingredients and instructions.
+  - Comments section is shown correctly.
+
+### Test: Add a Comment to a Recipe
+- **Purpose**: To verify that users can add comments to a recipe.
+- **Expected Result**: Comment is successfully added and displayed on the recipe page.
+- **Method**:
+  1. Navigate to a recipe page.
+  2. Find the comment form and enter a new comment.
+  3. Submit the comment and verify it appears in the comments section.
+- **Result**:
+  - Comment is added without errors and appears immediately in the list of comments.
+
+### Test: Edit a Comment on a Recipe
+- **Purpose**: To verify that users can edit their comments on a recipe.
+- **Expected Result**: Edited comment is successfully updated and displayed correctly.
+- **Method**:
+  1. Navigate to a recipe page with existing comments.
+  2. Find the comment to edit and locate the edit option.
+  3. Modify the comment text and save the changes.
+  4. Verify the edited comment appears correctly in the comments section.
+- **Result**:
+  - Comment is edited without errors and the updated text is displayed.
+
+### Test: Delete a Comment on a Recipe
+- **Purpose**: To verify that users can delete their comments on a recipe.
+- **Expected Result**: Deleted comment is removed from the comments section.
+- **Method**:
+  1. Navigate to a recipe page with existing comments.
+  2. Find the comment to delete and locate the delete option.
+  3. Confirm the deletion action.
+  4. Verify the comment is no longer visible in the comments section.
+- **Result**:
+  - Comment is deleted without errors and disappears from the comments list.
+
+### Test: Like a Recipe
+- **Purpose**: To verify that users can like a recipe.
+- **Expected Result**: The recipe's like count increases, and the UI indicates the recipe is liked.
+- **Method**:
+  1. Navigate to a recipe page.
+  2. Find the like button or icon associated with the recipe.
+  3. Click on the like button to like the recipe.
+  4. Verify that the like count increments.
+  5. Check that the like button/icon changes its appearance to indicate it's liked.
+- **Result**:
+  - The recipe is liked successfully without errors.
+  - The like count updates correctly.
+  - The UI reflects the recipe as liked.
+
+### Test: Unlike a Recipe
+- **Purpose**: To verify that users can unlike a recipe.
+- **Expected Result**: The recipe's like count decreases, and the UI indicates the recipe is unliked.
+- **Method**:
+  1. Navigate to a recipe page where the recipe is already liked.
+  2. Find the like button or icon associated with the recipe.
+  3. Click on the like button again to unlike the recipe.
+  4. Verify that the like count decrements.
+  5. Check that the like button/icon returns to its original appearance indicating it's unliked.
+- **Result**:
+  - The recipe is unliked successfully without errors.
+  - The like count updates correctly.
+  - The UI reflects the recipe as unliked.
+
+### Test: Create a Recipe
+- **Purpose**: To verify that users can successfully create a recipe.
+- **Expected Result**: The recipe is submitted and stored in the database, and the user is redirected to the recipe details page.
+- **Method**:
+  1. Navigate to the recipe creation page.
+  2. Fill in all required fields including title, description, ingredients, and instructions.
+  3. Upload an image for the recipe.
+  4. Submit the form.
+  5. Verify that the user is redirected to the newly created recipe's details page.
+- **Result**:
+  - The recipe is successfully created without errors.
+  - The user is redirected to the recipe details page where the new recipe is displayed.
+
+  ### Test: Delete a Recipe
+- **Purpose**: To verify that users can delete a recipe.
+- **Expected Result**: The recipe is successfully deleted from the database, and the user is redirected to the home page.
+- **Method**:
+  1. Navigate to a recipe details page.
+  2. Locate and click on the delete button or link associated with the recipe.
+  3. Verify that the recipe is no longer accessible on the site.
+  4. Check that the user is redirected after deletion.
+- **Result**:
+  - The recipe is deleted successfully without errors.
+  - The recipe is no longer listed on the site.
+  - The user is redirected after deletion.
+
+### Test: Edit a Recipe
+- **Purpose**: To verify that users can edit an existing recipe.
+- **Expected Result**: The recipe details are updated with the new information provided by the user, and the changes are reflected on the recipe details page.
+- **Method**:
+  1. Navigate to the edit page of a specific recipe.
+  2. Verify that the current details of the recipe are pre-populated in the edit form fields.
+  3. Modify the title, description, ingredients, instructions, or image as required.
+  4. Submit the form to save the changes.
+  5. Confirm that the updated information is displayed after getting redirected back.
+- **Result**:
+  - The recipe is successfully updated without errors.
+  - The updated details (title, description, ingredients, instructions, and image) are correctly saved.
+  - The changes are reflected on the recipe details page upon redirection.
+
+</details>
 
 
 
@@ -423,7 +814,7 @@ All custom JSX ran through [ESLint](https://eslint.org/) with no errors.
 ![lighthouse_scores](/readme/score.png)
 
 
-# Heroku Deployment
+## Heroku Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
 
 Prerequisites:
@@ -448,7 +839,7 @@ The app should now be deployed.
 
 
 
-# Run Locally
+## Run Locally
 Note that you need your own backend API
 
 Open up your preffered IDE
@@ -471,7 +862,7 @@ Run application
 
  
 
-# Credits
+## Credits
 
 All installed libraries have been implented with the help of their respective documentation and examples
 

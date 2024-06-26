@@ -23,6 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test:sidebar": "react-scripts test src/components/__tests__/SideBar.test.js --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test:recipe": "react-scripts test src/components/__tests__/Recipe.test.js --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
     "lint:css": "stylelint '**/*.css',",
     "lint": "eslint 'src/**/*.{js,jsx}' --ignore-pattern 'src/**/*.{test,spec}.js'",

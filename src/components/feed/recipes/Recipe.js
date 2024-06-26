@@ -39,16 +39,21 @@ const Recipe = (props) => {
   const { fetchProfile, ...profiles } = useProfileData();
 
   useEffect(() => {
+    let isMounted = true;
+
     const getProfileName = async () => {
       if (profile_id && !profiles[profile_id]) {
         await fetchProfile(profile_id);
       }
-      if (profiles[profile_id]) {
+      if (isMounted && profiles[profile_id]) {
         setOwnerName(profiles[profile_id].name || owner);
       }
     };
 
     getProfileName();
+    return () => {
+      isMounted = false;
+    };
   }, [profiles, profile_id, fetchProfile, owner]);
 
   useEffect(() => {
