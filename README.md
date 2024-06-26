@@ -137,7 +137,7 @@ Under the user's profile card, there is a feed containing all the recipes that t
 - **Most Liked Recipes Sidebar Component**: A sidebar showcasing the recipes with the most likes.
 - **Notification System**: Notifies users when they receive comments or new followers.
 
-Additionally, while a rating system was considered, I decided against it for now to avoid making users feel judged by ratings. Instead, the number of likes and comments serves as an indicator of a recipe's popularity and quality. However, a rating system is not ruled out for future implementation.
+Additionally, while a rating system was considered, I decided against it for now to avoid making users feel judged by ratings. Instead, the number of likes and comments serves as an indicator of a recipe's popularity and quality. However, a rating system is not ruled out for future implementation since the backend is already prepared for it.
 
 
 ## Planning
@@ -162,6 +162,7 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 <details>
 <summary>Epic: User Authentication and Profile Management</summary>
+
 - As a new user, I want to sign up with a username and password so that I can create an account.
 - As a registered user, I want to log in with my credentials so that I can access my account.
 - As a user, I want to view my and other users' profile details so that I can check their stats and recipes.
@@ -172,6 +173,7 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 <details>
   <summary>Epic: Recipe Management</summary>
+
   - As a user, I want to create a new recipe by filling out a form so that I can share it with others.
   - As a user, I want to view a feed of recipes so that I can find new dishes to try.
   - As a user, I want to delete my recipes so that I can manage my content.
@@ -181,6 +183,7 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 <details>
   <summary>Epic: Social Feed</summary>
+
   - As a user, I want to see a global feed with all posts so that I can discover new recipes from all users.
   - As a user, I want to interact with posts directly from the feed by liking them.
   - As a user, I want to see a feed with my own posts and the posts of users I follow.
@@ -188,6 +191,7 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 <details>
   <summary>Epic: Social Interactions</summary>
+
   - As a user, I want to like recipes so that I can show my appreciation for them.
   - As a user, I want to comment on recipes so that I can share my thoughts or ask questions.
   - As a user, I want to follow other users so that I can see their recipes in my feed.
@@ -197,6 +201,7 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 <details>
   <summary>Epic: Search and Filter</summary>
+
   - As a user, I want to search for recipes by title or ingredient so that I can find specific dishes.
 </details>
 <br>
@@ -222,10 +227,9 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 - **Recipe Management**
   - Create, edit, and delete recipes.
   - Formatted ingredient list.
-  - Tagging recipes for easy filtering.
 - **Feeds**
   - Global feed with all recipes.
-  - Personal feed with the user’s posts and followed users’ posts.
+  - Followed feed to display recipes from followed users
 - **Interactions**
   - Like recipes directly from the feed.
   - Comment on recipes.
@@ -820,6 +824,11 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 
 </details>
 
+### Backend testing
+
+Backend testing can be read about in the backend readme
+[tastehub-drf](https://github.com/zimmoc/tastehub-drf)
+
 
 
 
@@ -919,6 +928,8 @@ All installed libraries have been implented with the help of their respective do
 Countless of stackoverflow posts.
 
 Random forum posts found through googling problems
+
+The Code Institute Moments walkthrough project which i followed and used code from while creating this project.
 
 ### Content 
 
