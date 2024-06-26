@@ -303,9 +303,11 @@ I chose Roboto because it's a clean, modern font that's easily readable.
 # Testing
 
 
+Automated testing goes here.
+
+Manual testing goes here.
 
 
-##### Manual focused
 
 
 ### Validators
@@ -344,12 +346,9 @@ All custom JSX ran through [ESLint](https://eslint.org/) with no errors.
 
 ### Performance
 
-- __Test performed using [Lightouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)__
+- __Tests performed using [Lightouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)__
 
 ![lighthouse_scores](/readme/score.png)
-
-
-
 
 
 # Heroku Deployment

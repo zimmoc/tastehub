@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import SideBar from '../components/sidebar/SideBar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,7 +8,6 @@ import Form from 'react-bootstrap/Form';
 
 import css from '../styles/Homepage.module.css';
 import appStyles from '../styles/App.module.css';
-import Recipe from '../components/feed/recipes/Recipe';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../api/axiosDefaults';
 import TopBar from '../components/feed/TopBar';
@@ -19,6 +18,11 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../utils/utils';
 import PopularProfiles from '../components/profiles/PopularProfiles';
 import PropTypes from 'prop-types';
+
+const Recipe = lazy(() => import('../components/feed/recipes/Recipe'));
+
+const preloadRecipeComponent = () =>
+  import('../components/feed/recipes/Recipe');
 
 function HomePage({ message, filter }) {
   const [recipes, setRecipes] = useState({ results: [] });
@@ -34,6 +38,7 @@ function HomePage({ message, filter }) {
         );
         setRecipes(data);
         setHasLoaded(true);
+        preloadRecipeComponent();
       } catch (err) {
         console.log(err);
       }
@@ -75,30 +80,21 @@ function HomePage({ message, filter }) {
         </Container>
         {hasLoaded ? (
           <>
-            {/* {recipes.results.length ? (
-              <InfiniteScroll
-                children={recipes.results.map((recipe) => (
-                  <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
-                ))}
-                dataLength={recipes.results.length}
-                loader={<Asset spinner />}
-                hasMore={!!recipes.next}
-                next={() => fetchMoreData(recipes, setRecipes)}
-              />
-            ) : (
-              <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message} />
-              </Container>
-            )} */}
             {recipes.results.length ? (
               <InfiniteScroll
                 dataLength={recipes.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!recipes.next}
                 next={() => fetchMoreData(recipes, setRecipes)}>
-                {recipes.results.map((recipe) => (
-                  <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
-                ))}
+                <Suspense fallback={<Asset spinner />}>
+                  {recipes.results.map((recipe) => (
+                    <Recipe
+                      key={recipe.id}
+                      {...recipe}
+                      setRecipes={setRecipes}
+                    />
+                  ))}
+                </Suspense>
               </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
