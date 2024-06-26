@@ -105,7 +105,7 @@ function SideBar() {
         <Card className={`${css.Card} mb`}>
           <Card.Body className="d-flex flex-column justify-content-center align-items-center">
             <Avatar
-              src={currentUser?.profile_image}
+              src={currentUser?.profile_image || Logo}
               height={100}
               className="pr-3"
             />
