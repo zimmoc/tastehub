@@ -33,6 +33,8 @@ function SideBar() {
   };
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchProfileData = async () => {
       if (currentUser && !currentUser.profile && !profileLoading) {
         setProfileLoading(true);
@@ -50,12 +52,18 @@ function SideBar() {
             error
           );
         } finally {
-          setProfileLoading(false);
+          if (isMounted) {
+            // Ensure setState is only called if component is mounted
+            setProfileLoading(false);
+          }
         }
       }
     };
 
     fetchProfileData();
+    return () => {
+      isMounted = false; // Set flag to false when component is unmounted
+    };
   }, [currentUser, setCurrentUser, profileLoading]);
 
   const loggedOutIcons = (

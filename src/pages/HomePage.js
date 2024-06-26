@@ -27,13 +27,17 @@ function HomePage({ message, filter }) {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchRecipes = async () => {
       try {
         const { data } = await axiosReq.get(
           `/recipes/?${filter}search=${query}`
         );
-        setRecipes(data);
-        setHasLoaded(true);
+        if (isMounted) {
+          setRecipes(data);
+          setHasLoaded(true);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -41,6 +45,10 @@ function HomePage({ message, filter }) {
 
     setHasLoaded(false);
     fetchRecipes();
+
+    return () => {
+      isMounted = false;
+    };
   }, [filter, query, pathname]);
 
   return (

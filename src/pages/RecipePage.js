@@ -73,7 +73,7 @@ function RecipePage() {
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
-              recipe={id}
+              recipe={parseInt(id)}
               setRecipe={setRecipe}
               setComments={setComments}
             />
