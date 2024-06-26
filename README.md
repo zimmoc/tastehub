@@ -442,6 +442,8 @@ These tests cover the essential functionalities of the NavBar component, ensurin
   - Checking that the navbar does not have the 'show' class after toggling.
 - **Why**: To ensure that the navbar toggler functionality works correctly, providing a responsive navigation experience.
 
+<hr />
+
 </details>
 
 <details>
@@ -495,12 +497,16 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 <details>
 <summary>Recipe</summary>
 
+<hr />
+
 #### Test: `renders Recipe component`
 - **Purpose**: To verify that the `Recipe` component renders correctly.
 - **What was tested**:
   - Rendering the `Recipe` component.
   - Checking if the mockRecipe content is present.
 - **Why**: To ensure that the `Recipe` component loads correctly and contains the expected elements.
+
+<hr />
 
 </details>
 
@@ -509,6 +515,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 
 <details>
 <summary>Feeds</summary>
+
+<hr />
 
 ### Test: Retrieve Recipes List on Homepage
 - **Purpose**: To verify that the list of recipes is retrieved and displayed on the homepage.
@@ -521,6 +529,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - Recipes are displayed without errors or missing data.
   - Each recipe card contains all expected information.
 
+<hr />
+
 ### Test: Following Feed on Homepage
 - **Purpose**: To verify that the following feed on the homepage displays recipes from users you follow.
 - **Expected Result**: Only recipes from users that the current user follows are shown in the feed.
@@ -531,6 +541,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   4. Check that no recipes from users who are not followed by the current user appear in the feed.
 - **Result**:
   - The following feed displays recipes exclusively from followed users.
+
+<hr />
 
 ### Test: Liked Feed on Homepage
 - **Purpose**: To verify that the liked feed on the homepage displays recipes that the user has liked.
@@ -543,10 +555,15 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 - **Result**:
   - The liked feed displays recipes that the user has liked.
 
+<hr />
+
 </details>
 
 <details>
 <summary>Profile</summary>
+
+<hr />
+
   ### Test: View Profile Information
   - **Purpose**: To verify that the profile page displays user information correctly.
   - **Expected Result**: Profile details including name, bio, recipe count, followers, and following are shown accurately.
@@ -556,6 +573,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
     3. Verify the follow/unfollow button functionality.
   - **Result**:
     - Profile information is displayed as expected, with correct stats and options to follow/unfollow.
+
+    <hr />
   
   ### Test: Edit Profile Information
   - **Purpose**: To verify that users can edit their profile information.
@@ -566,6 +585,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
     3. Save changes and confirm they are updated on the profile page.
   - **Result**:
     - Profile changes are saved successfully and displayed correctly.
+
+    <hr />
   
   ### Test: Infinite Scroll Functionality
   - **Purpose**: To verify that infinite scroll works correctly on recipe or comments lists.
@@ -576,10 +597,15 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - **Result**:
     - Infinite scroll loads new comments smoothly without breaking the page layout.
     - Infinite scroll loads new recipes smoothly without breaking the page layout.
+
+    <hr />
 </details>
 
 <details>
 <summary>Navigation</summary>
+
+<hr />
+
   ### Test: Navigate to Pages from Sidebar
   - **Purpose**: To verify navigation to different pages from the Sidebar.
   - **Expected Result**: Clicking on respective links in the Sidebar navigates to the correct pages.
@@ -611,6 +637,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
       2. Click on the "Sign Out" link in the Sidebar.
       3. Verify that the application logs the user out and redirects to the Home page.
       4. Ensure that after signing out, the Sidebar shows links for signing in and signing up.
+
+      <hr />
   
   ### Test: Navigate to Pages from Navbar
   - **Purpose**: To verify navigation to different pages from the Navbar.
@@ -651,11 +679,15 @@ These tests cover the essential functionalities of the SideBar component, ensuri
       2. Click on the "Sign Out" link in the Navbar.
       3. Verify that the application logs the user out and redirects to the Home page.
       4. Ensure that after signing out, the Navbar shows links for signing in and signing up.
+
+      <hr />
 </details>
 
 
 <details>
 <summary>Recipe</summary>
+
+<hr />
 
 ### Test: View Recipe Details
 - **Purpose**: To verify that the recipe details page displays recipe information correctly.
@@ -668,6 +700,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - Recipe details are shown correctly, including ingredients and instructions.
   - Comments section is shown correctly.
 
+  <hr />
+
 ### Test: Add a Comment to a Recipe
 - **Purpose**: To verify that users can add comments to a recipe.
 - **Expected Result**: Comment is successfully added and displayed on the recipe page.
@@ -677,6 +711,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   3. Submit the comment and verify it appears in the comments section.
 - **Result**:
   - Comment is added without errors and appears immediately in the list of comments.
+
+  <hr />
 
 ### Test: Edit a Comment on a Recipe
 - **Purpose**: To verify that users can edit their comments on a recipe.
@@ -689,6 +725,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 - **Result**:
   - Comment is edited without errors and the updated text is displayed.
 
+  <hr />
+
 ### Test: Delete a Comment on a Recipe
 - **Purpose**: To verify that users can delete their comments on a recipe.
 - **Expected Result**: Deleted comment is removed from the comments section.
@@ -699,6 +737,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   4. Verify the comment is no longer visible in the comments section.
 - **Result**:
   - Comment is deleted without errors and disappears from the comments list.
+
+  <hr />
 
 ### Test: Like a Recipe
 - **Purpose**: To verify that users can like a recipe.
@@ -714,6 +754,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - The like count updates correctly.
   - The UI reflects the recipe as liked.
 
+  <hr />
+
 ### Test: Unlike a Recipe
 - **Purpose**: To verify that users can unlike a recipe.
 - **Expected Result**: The recipe's like count decreases, and the UI indicates the recipe is unliked.
@@ -728,6 +770,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - The like count updates correctly.
   - The UI reflects the recipe as unliked.
 
+  <hr />
+
 ### Test: Create a Recipe
 - **Purpose**: To verify that users can successfully create a recipe.
 - **Expected Result**: The recipe is submitted and stored in the database, and the user is redirected to the recipe details page.
@@ -740,6 +784,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
 - **Result**:
   - The recipe is successfully created without errors.
   - The user is redirected to the recipe details page where the new recipe is displayed.
+
+  <hr />
 
   ### Test: Delete a Recipe
 - **Purpose**: To verify that users can delete a recipe.
@@ -754,6 +800,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - The recipe is no longer listed on the site.
   - The user is redirected after deletion.
 
+  <hr />
+
 ### Test: Edit a Recipe
 - **Purpose**: To verify that users can edit an existing recipe.
 - **Expected Result**: The recipe details are updated with the new information provided by the user, and the changes are reflected on the recipe details page.
@@ -767,6 +815,8 @@ These tests cover the essential functionalities of the SideBar component, ensuri
   - The recipe is successfully updated without errors.
   - The updated details (title, description, ingredients, instructions, and image) are correctly saved.
   - The changes are reflected on the recipe details page upon redirection.
+
+  <hr />
 
 </details>
 
