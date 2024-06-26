@@ -21,14 +21,6 @@ export default [
         version: 'detect',
       },
     },
-    overrides: [
-      {
-        files: ['**/*.test.js', '**/*.spec.js'],
-        rules: {
-          'react/react-in-jsx-scope': 'off',
-        },
-      },
-    ],
   },
   pluginJs.configs.recommended,
   pluginReactConfig,

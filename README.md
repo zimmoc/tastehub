@@ -235,17 +235,84 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 ## Project structure
 
-#### Reusable components
+#### Reusable Components
 
-Recipe.js
-Avatar.js
-MoreDropDown.js
-NavBar.js
-SideBar.js
-PopularProfiles.js
-TopBar.js
-Asset.js
-Comment.js
+__Recipe__
+- **Purpose**: Fetch and display a specific recipe.
+- **Usage**: 
+  - **HomePage.js**: Used to display recipes in the feed.
+  - **ProfilePage.js**: Shows recipes specific to a user.
+  - **RecipePage.js**: Displays detailed information about a selected recipe.
+- **Potential Uses**: 
+  - Can be used to display a list of the most liked or most commented recipes.
+
+
+__Avatar__
+- **Purpose**: Display user avatars with customizable size and optional text. But keeping the profile picture styling the same accross the application.
+- **Usage**: 
+  - **Profile.js**: Used to show the user's profile picture.
+    - ProfileEditForm.js
+    - ProfilePage.js
+  - **Comment.js**: Displays the avatar of the user who made the comment.
+    - CommentCreateForm.js
+  - **NavBar.js**: Shows the current user's avatar with Profile text
+  - **SideBar.js**: Shows the current user's avatar if logged in, else display Logo.
+- **Potential Uses**: 
+  - Can be used anywhere in the application where a user's profile picture needs to be displayed, such as in lists of followers, user search results etc..
+
+__MoreDropDown__
+- **Purpose**: Provide a dropdown menu to display buttons that navigate users to edit pages.
+- **Usage**: 
+  - Displays a three-dot menu that users can click to reveal links to edit forms.
+  - Used in:
+    - **Comment.js**: Allows users to edit or delete comments.
+    - **Recipe.js**: Allow users to edit or delete recipes.
+    - **ProfilePage.js**: Displays navigation to profile edit forms.
+- **Potential Uses**: 
+  - Can be used wherever a dropdown menu is needed to display links for actions such as editing, deleting, or navigating to other pages.
+
+
+__NavBar__
+- **Purpose**: Display a navigation bar at the top of the page containing navigation links.
+- **Usage**: 
+  - Renders on all pages when the screen size is too small to display the sidebar.
+- **Potential Uses**: 
+  - Can be used in any part of the application where a top navigation bar is needed to provide navigation links, especially for mobile or smaller screen sizes.
+
+
+__SideBar__
+- **Purpose**: Serve as the primary navigation bar when the screen size allows it. It contains all navigation links and a profile card that displays the logged-in user's profile picture, username, and display name, along with a button to their profile.
+- **Usage**: 
+  - Used on all pages, provided the screen size is large enough to display it.
+- **Potential Uses**: 
+  - Can be used as the main navigation interface for larger screens, providing easy access to navigation links and user profile information.
+
+
+__PopularProfiles__
+- **Purpose**: Display the top 5 most followed users with a follow button.
+- **Usage**: 
+  - **HomePage.js**: Shows the top followed users on the home page,
+  - **ProfilePage.js**: Displays the top followed users on the profile page,
+- **Potential Uses**:
+  - Can be used in any part of the application where showcasing popular users is beneficial, such as in a sidebar or a dedicated section for user recommendations.
+
+
+__Asset__
+- **Purpose**: Display a loading spinner, an image, or a message based on the provided props.
+- **Usage**: 
+  - Used across the app, primarily to display a spinner while content is being fetched or loaded.
+- **Potential Uses**:
+  - Can be used to indicate loading states, display images with associated messages, or show standalone messages in various parts of the application.
+
+
+__Comment__
+- **Purpose**: Display a comment.
+- **Usage**: 
+  - Used on RecipePage.js to display comments associated with the recipe.
+- **Potential Uses**:
+  - Can be used in any part of the application where user comments need to be displayed, such as a blog post, a forum, or a user profile page.
+
+
 
 #### Page structure
 

@@ -24,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
-    "lint:css": "stylelint '**/*.css'",
-    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "lint:css": "stylelint '**/*.css',",
+    "lint": "eslint 'src/**/*.{js,jsx}' --ignore-pattern 'src/**/*.{test,spec}.js'",
     "lint:fix": "eslint 'src/**/*.{js,jsx}' --fix"
   },
   "eslintConfig": {

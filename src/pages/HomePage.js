@@ -19,12 +19,14 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../utils/utils';
 import PopularProfiles from '../components/profiles/PopularProfiles';
 import PropTypes from 'prop-types';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 function HomePage({ message, filter }) {
   const [recipes, setRecipes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState('');
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     let isMounted = true;
@@ -49,7 +51,7 @@ function HomePage({ message, filter }) {
     return () => {
       isMounted = false;
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row>
