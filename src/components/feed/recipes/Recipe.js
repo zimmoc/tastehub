@@ -51,6 +51,20 @@ const Recipe = (props) => {
     getProfileName();
   }, [profiles, profile_id, fetchProfile, owner]);
 
+  useEffect(() => {
+    if (image) {
+      const preloadLink = document.createElement('link');
+      preloadLink.rel = 'preload';
+      preloadLink.as = 'image';
+      preloadLink.href = image;
+      document.head.appendChild(preloadLink);
+
+      return () => {
+        document.head.removeChild(preloadLink);
+      };
+    }
+  }, [image]);
+
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post('/likes/', { recipe: id });

@@ -39,15 +39,6 @@ function HomePage({ message, filter }) {
         setRecipes(data);
         setHasLoaded(true);
         preloadRecipeComponent();
-
-        if (data.results.length > 0) {
-          const firstImageUrl = data.results[0].image;
-          const preloadLink = document.createElement('link');
-          preloadLink.rel = 'preload';
-          preloadLink.as = 'image';
-          preloadLink.href = firstImageUrl;
-          document.head.appendChild(preloadLink);
-        }
       } catch (err) {
         console.log(err);
       }
