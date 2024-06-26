@@ -3,29 +3,29 @@ import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import Asset from '../../components/Asset';
-import NoResults from '../../assets/no-results.png';
+import Asset from '../components/Asset';
+import NoResults from '../assets/no-results.png';
 
-import styles from '../../styles/ProfilePage.module.css';
-import appStyles from '../../styles/App.module.css';
-import btnStyles from '../../styles/Button.module.css';
+import styles from '../styles/ProfilePage.module.css';
+import appStyles from '../styles/App.module.css';
+import btnStyles from '../styles/Button.module.css';
 
-import PopularProfiles from './PopularProfiles';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import SideBar from '../sidebar/SideBar';
+import PopularProfiles from '../components/profiles/PopularProfiles';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
+import SideBar from '../components/sidebar/SideBar';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {
   useProfileData,
   useSetProfileData,
-} from '../../contexts/ProfileDataContext';
+} from '../contexts/ProfileDataContext';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { axiosReq } from '../../api/axiosDefaults';
+import { axiosReq } from '../api/axiosDefaults';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Recipe from '../feed/recipes/Recipe';
-import { fetchMoreData } from '../../utils/utils';
-import { ProfileEditDropdown } from '../MoreDropDown';
-import Avatar from '../Avatar';
+import Recipe from '../components/feed/recipes/Recipe';
+import { fetchMoreData } from '../utils/utils';
+import { ProfileEditDropdown } from '../components/MoreDropDown';
+import Avatar from '../components/Avatar';
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);

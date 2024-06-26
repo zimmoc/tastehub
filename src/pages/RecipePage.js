@@ -4,21 +4,21 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
-import appStyles from '../../../styles/App.module.css';
-import commentStyles from '../../../styles/CommentCreateEditForm.module.css';
-import SideBar from '../../sidebar/SideBar';
+import appStyles from '../styles/App.module.css';
+import commentStyles from '../styles/CommentCreateEditForm.module.css';
+import SideBar from '../components/sidebar/SideBar';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { axiosReq } from '../../../api/axiosDefaults';
-import Recipe from './Recipe';
-import CommentCreateForm from '../../comments/CommentCreateForm';
-import { useCurrentUser } from '../../../contexts/CurrentUserContext';
-import Comment from '../../comments/Comment';
+import { axiosReq } from '../api/axiosDefaults';
+import Recipe from '../components/feed/recipes/Recipe';
+import CommentCreateForm from '../components/comments/CommentCreateForm';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
+import Comment from '../components/comments/Comment';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Asset from '../../Asset';
-import { fetchMoreData } from '../../../utils/utils';
-import IngredientsList from './IngredientsList';
-import InstructionsList from './InstructionsList';
+import Asset from '../components/Asset';
+import { fetchMoreData } from '../utils/utils';
+import IngredientsList from '../components/feed/recipes/IngredientsList';
+import InstructionsList from '../components/feed/recipes/InstructionsList';
 
 function RecipePage() {
   const { id } = useParams();

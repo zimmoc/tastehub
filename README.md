@@ -140,7 +140,6 @@ Under the user's profile card, there is a feed containing all the recipes that t
 Additionally, while a rating system was considered, I decided against it for now to avoid making users feel judged by ratings. Instead, the number of likes and comments serves as an indicator of a recipe's popularity and quality. However, a rating system is not ruled out for future implementation.
 
 
-
 # Planning
 
 ## Idea
@@ -236,6 +235,18 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 
 ## Project structure
 
+#### Reusable components
+
+Recipe.js
+Avatar.js
+MoreDropDown.js
+NavBar.js
+SideBar.js
+PopularProfiles.js
+TopBar.js
+Asset.js
+Comment.js
+
 #### Page structure
 
 ![Page Structure](/readme/page_structure.png)
@@ -245,12 +256,6 @@ TasteHub is a social recipe app where you can easily share, save, and like recip
 I created a mockup in Figma that uses a layout similar to popular social media sites. This design helps new users feel familiar and comfortable right away. This design language is used across the site, no matter what components are showing.
 <br>
 ![Mockup](/readme/mockup.png)
-
-#### Entity-Relationship Diagram
-
-The final database schema is essentially the same, but with some changes to the types of fields due to the limitations of the website I used.
-
-![erd](/readme/erd.png)
 
 #### Color schemes
 
