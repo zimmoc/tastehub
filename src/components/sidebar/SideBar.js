@@ -14,6 +14,7 @@ import Avatar from '../Avatar';
 import css from '../../styles/SideBar.module.css';
 import { Link, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import Logo from '../../assets/logo.png';
+import { removeTokenTimestamp } from '../../utils/utils';
 
 function SideBar() {
   const currentUser = useCurrentUser();
@@ -27,6 +28,7 @@ function SideBar() {
     try {
       await axios.post('/dj-rest-auth/logout/');
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       // console.log(err);
     }
